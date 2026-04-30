@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="280" viewBox="0 0 900 280">
+  <rect width="900" height="280" fill="#0b1020"/>
+  <text x="20" y="36" fill="#e8ecf3" font-family="Arial" font-size="20">MST — Kruskal vs Prim</text>
+  <text x="20" y="66" fill="#b9c0d3" font-family="Arial" font-size="14">Kruskal: ordena aristas + Union-Find · Prim: crece desde un nodo con arista mínima saliente</text>
+
+  <rect x="20" y="100" width="410" height="140" rx="14" fill="#121a33" stroke="#e8ecf3"/>
+  <text x="40" y="130" fill="#e8ecf3" font-family="Arial" font-size="16">Kruskal</text>
+  <text x="40" y="158" fill="#b9c0d3" font-family="Arial" font-size="14">1) sort(E)</text>
+  <text x="40" y="182" fill="#b9c0d3" font-family="Arial" font-size="14">2) si une componentes → añadir</text>
+  <text x="40" y="206" fill="#b9c0d3" font-family="Arial" font-size="14">3) Union-Find para ciclos</text>
+
+  <rect x="470" y="100" width="410" height="140" rx="14" fill="#121a33" stroke="#e8ecf3"/>
+  <text x="490" y="130" fill="#e8ecf3" font-family="Arial" font-size="16">Prim</text>
+  <text x="490" y="158" fill="#b9c0d3" font-family="Arial" font-size="14">1) conjunto S</text>
+  <text x="490" y="182" fill="#b9c0d3" font-family="Arial" font-size="14">2) arista mínima que cruza (S, V\S)</text>
+  <text x="490" y="206" fill="#b9c0d3" font-family="Arial" font-size="14">3) repetir hasta n-1 aristas</text>
+</svg>

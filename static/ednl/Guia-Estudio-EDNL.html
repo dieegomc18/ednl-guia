@@ -1,0 +1,1070 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guía de Estudio EDNL</title>
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="topHeader">
+      <div class="titleWrap">
+        <h1 class="pageTitle">Guía de Estudio EDNL</h1>
+        <p class="pageSubtitle">Modo profe particular · teoría + código + ejercicios</p>
+      </div>
+      <button id="tocButton" class="tocButton" type="button">Índice</button>
+    </header>
+
+    <section class="tocSection">
+      <h2>Índice</h2>
+      <nav id="toc"><ul class="tocList">
+<li class="tocItem tocLevel1"><a href="#guía-de-estudio-ednl-examen-final">Guía de Estudio EDNL - Examen Final</a></li>
+<li class="tocItem tocLevel2"><a href="#índice">ÍNDICE</a></li>
+<li class="tocItem tocLevel2"><a href="#1-árboles-teoría">1. ÁRBOLES: TEORÍA</a></li>
+<li class="tocItem tocLevel3"><a href="#11-definición-y-componentes">1.1 Definición y Componentes</a></li>
+<li class="tocItem tocLevel3"><a href="#12-árbol-binario-tad-abin">1.2 Árbol Binario (TAD Abin)</a></li>
+<li class="tocItem tocLevel3"><a href="#13-árbol-general-tad-agen">1.3 Árbol General (TAD Agen)</a></li>
+<li class="tocItem tocLevel3"><a href="#14-abb-árbol-binario-de-búsqueda">1.4 ABB (Árbol Binario de Búsqueda)</a></li>
+<li class="tocItem tocLevel3"><a href="#15-árboles-equilibrados-avl-y-arn">1.5 Árboles Equilibrados (AVL y ARN)</a></li>
+<li class="tocItem tocLevel3"><a href="#16-árboles-parcialmente-ordenados-apo-heap">1.6 Árboles Parcialmente Ordenados (APO / Heap)</a></li>
+<li class="tocItem tocLevel2"><a href="#2-árboles-código">2. ÁRBOLES: CÓDIGO</a></li>
+<li class="tocItem tocLevel3"><a href="#21-implementación-enlazada-de-abin">2.1 Implementación Enlazada de Abin</a></li>
+<li class="tocItem tocLevel3"><a href="#22-inserción-y-eliminación-en-abb">2.2 Inserción y Eliminación en ABB</a></li>
+<li class="tocItem tocLevel3"><a href="#23-ejercicio-típico-árbol-binario-reflejado">2.3 Ejercicio Típico: Árbol Binario Reflejado</a></li>
+<li class="tocItem tocLevel3"><a href="#24-comprobar-si-un-árbol-es-avl">2.4 Comprobar si un Árbol es AVL</a></li>
+<li class="tocItem tocLevel2"><a href="#3-ejercicios-árboles-tipo-examen">3. EJERCICIOS ÁRBOLES (Tipo Examen)</a></li>
+<li class="tocItem tocLevel3"><a href="#31-árbol-binario-reflejado-visto-arriba">3.1 Árbol Binario Reflejado ✅ (Visto arriba)</a></li>
+<li class="tocItem tocLevel3"><a href="#32-árbol-general-reflejado">3.2 Árbol General Reflejado</a></li>
+<li class="tocItem tocLevel3"><a href="#33-árboles-generales-similares">3.3 Árboles Generales Similares</a></li>
+<li class="tocItem tocLevel3"><a href="#34-contar-nodos-verdes-o-con-cierta-propiedad">3.4 Contar Nodos "Verdes" (o con cierta propiedad)</a></li>
+<li class="tocItem tocLevel3"><a href="#35-flotarhundir-nodos-heap-operations">3.5 Flotar/Hundir Nodos (heap operations)</a></li>
+<li class="tocItem tocLevel3"><a href="#36-subárbol-izquierdo-menor-que-derecho">3.6 Subárbol Izquierdo Menor que Derecho</a></li>
+<li class="tocItem tocLevel3"><a href="#37-agenda-abb-eliminar-y-reinsertar">3.7 Agenda ABB (Eliminar y reinsertar)</a></li>
+<li class="tocItem tocLevel2"><a href="#4-tablas-hash-teoría">4. TABLAS HASH: TEORÍA</a></li>
+<li class="tocItem tocLevel3"><a href="#41-conceptos-básicos">4.1 Conceptos Básicos</a></li>
+<li class="tocItem tocLevel3"><a href="#42-resolución-de-colisiones">4.2 Resolución de Colisiones</a></li>
+<li class="tocItem tocLevel3"><a href="#43-rehashing">4.3 Rehashing</a></li>
+<li class="tocItem tocLevel3"><a href="#44-hash-vs-árboles-de-búsqueda">4.4 Hash vs Árboles de Búsqueda</a></li>
+<li class="tocItem tocLevel2"><a href="#5-grafos-teoría">5. GRAFOS: TEORÍA</a></li>
+<li class="tocItem tocLevel3"><a href="#51-definición-y-tipos">5.1 Definición y Tipos</a></li>
+<li class="tocItem tocLevel3"><a href="#52-representaciones">5.2 Representaciones</a></li>
+<li class="tocItem tocLevel3"><a href="#53-definiciones-importantes">5.3 Definiciones Importantes</a></li>
+<li class="tocItem tocLevel3"><a href="#54-recorridos-de-grafos">5.4 Recorridos de Grafos</a></li>
+<li class="tocItem tocLevel3"><a href="#55-caminos-de-coste-mínimo">5.5 Caminos de Coste Mínimo</a></li>
+<li class="tocItem tocLevel3"><a href="#56-árboles-generadores-mínimos-mst">5.6 Árboles Generadores Mínimos (MST)</a></li>
+<li class="tocItem tocLevel2"><a href="#6-grafos-código">6. GRAFOS: CÓDIGO</a></li>
+<li class="tocItem tocLevel3"><a href="#61-tad-grafop-grafo-ponderado">6.1 TAD GrafoP (Grafo Ponderado)</a></li>
+<li class="tocItem tocLevel3"><a href="#62-dijkstra">6.2 Dijkstra</a></li>
+<li class="tocItem tocLevel3"><a href="#63-floyd">6.3 Floyd</a></li>
+<li class="tocItem tocLevel3"><a href="#64-warshall-clausura-transitiva">6.4 Warshall (Clausura Transitiva)</a></li>
+<li class="tocItem tocLevel3"><a href="#65-tad-partición-union-find-para-kruskal">6.5 TAD Partición (Union-Find) para Kruskal</a></li>
+<li class="tocItem tocLevel3"><a href="#66-kruskal">6.6 Kruskal</a></li>
+<li class="tocItem tocLevel3"><a href="#67-prim">6.7 Prim</a></li>
+<li class="tocItem tocLevel2"><a href="#7-ejercicios-grafos-tipo-examen">7. EJERCICIOS GRAFOS (Tipo Examen)</a></li>
+<li class="tocItem tocLevel3"><a href="#71-ciudades-rebeldes-zuelandia">7.1 Ciudades Rebeldes (Zuelandia)</a></li>
+<li class="tocItem tocLevel3"><a href="#72-puentes-grecoland">7.2 Puentes Grecoland</a></li>
+<li class="tocItem tocLevel3"><a href="#73-toxicidad-zuelandia-líneas-aéreas-tumbuctú-repartidor-bebidas">7.3 Toxicidad Zuelandia / Líneas Aéreas Tumbuctú / Repartidor Bebidas</a></li>
+<li class="tocItem tocLevel3"><a href="#74-laberinto-3d-matriz-fauno-viajes-alergias">7.4 Laberinto 3D / Matriz Fauno / Viajes Alergias</a></li>
+<li class="tocItem tocLevel2"><a href="#8-estrategia-para-el-examen">8. ESTRATEGIA PARA EL EXAMEN</a></li>
+<li class="tocItem tocLevel3"><a href="#81-para-ejercicios-de-árboles">8.1 Para Ejercicios de Árboles</a></li>
+<li class="tocItem tocLevel3"><a href="#82-para-ejercicios-de-grafos">8.2 Para Ejercicios de Grafos</a></li>
+<li class="tocItem tocLevel3"><a href="#83-justificación-de-complejidad-importante-en-el-examen">8.3 Justificación de Complejidad (Importante en el Examen)</a></li>
+<li class="tocItem tocLevel3"><a href="#84-checklist-antes-de-entregar">8.4 Checklist antes de Entregar</a></li>
+<li class="tocItem tocLevel2"><a href="#recursos-adicionales">RECURSOS ADICIONALES</a></li>
+</ul></nav>
+    </section>
+
+    <aside id="tocPanel" class="tocPanel" aria-hidden="true">
+      <div class="tocPanelHeader">
+        <strong>Índice</strong>
+        <button id="tocClose" class="tocClose" type="button">Cerrar</button>
+      </div>
+      <nav class="tocPanelBody"><ul class="tocList">
+<li class="tocItem tocLevel1"><a href="#guía-de-estudio-ednl-examen-final">Guía de Estudio EDNL - Examen Final</a></li>
+<li class="tocItem tocLevel2"><a href="#índice">ÍNDICE</a></li>
+<li class="tocItem tocLevel2"><a href="#1-árboles-teoría">1. ÁRBOLES: TEORÍA</a></li>
+<li class="tocItem tocLevel3"><a href="#11-definición-y-componentes">1.1 Definición y Componentes</a></li>
+<li class="tocItem tocLevel3"><a href="#12-árbol-binario-tad-abin">1.2 Árbol Binario (TAD Abin)</a></li>
+<li class="tocItem tocLevel3"><a href="#13-árbol-general-tad-agen">1.3 Árbol General (TAD Agen)</a></li>
+<li class="tocItem tocLevel3"><a href="#14-abb-árbol-binario-de-búsqueda">1.4 ABB (Árbol Binario de Búsqueda)</a></li>
+<li class="tocItem tocLevel3"><a href="#15-árboles-equilibrados-avl-y-arn">1.5 Árboles Equilibrados (AVL y ARN)</a></li>
+<li class="tocItem tocLevel3"><a href="#16-árboles-parcialmente-ordenados-apo-heap">1.6 Árboles Parcialmente Ordenados (APO / Heap)</a></li>
+<li class="tocItem tocLevel2"><a href="#2-árboles-código">2. ÁRBOLES: CÓDIGO</a></li>
+<li class="tocItem tocLevel3"><a href="#21-implementación-enlazada-de-abin">2.1 Implementación Enlazada de Abin</a></li>
+<li class="tocItem tocLevel3"><a href="#22-inserción-y-eliminación-en-abb">2.2 Inserción y Eliminación en ABB</a></li>
+<li class="tocItem tocLevel3"><a href="#23-ejercicio-típico-árbol-binario-reflejado">2.3 Ejercicio Típico: Árbol Binario Reflejado</a></li>
+<li class="tocItem tocLevel3"><a href="#24-comprobar-si-un-árbol-es-avl">2.4 Comprobar si un Árbol es AVL</a></li>
+<li class="tocItem tocLevel2"><a href="#3-ejercicios-árboles-tipo-examen">3. EJERCICIOS ÁRBOLES (Tipo Examen)</a></li>
+<li class="tocItem tocLevel3"><a href="#31-árbol-binario-reflejado-visto-arriba">3.1 Árbol Binario Reflejado ✅ (Visto arriba)</a></li>
+<li class="tocItem tocLevel3"><a href="#32-árbol-general-reflejado">3.2 Árbol General Reflejado</a></li>
+<li class="tocItem tocLevel3"><a href="#33-árboles-generales-similares">3.3 Árboles Generales Similares</a></li>
+<li class="tocItem tocLevel3"><a href="#34-contar-nodos-verdes-o-con-cierta-propiedad">3.4 Contar Nodos "Verdes" (o con cierta propiedad)</a></li>
+<li class="tocItem tocLevel3"><a href="#35-flotarhundir-nodos-heap-operations">3.5 Flotar/Hundir Nodos (heap operations)</a></li>
+<li class="tocItem tocLevel3"><a href="#36-subárbol-izquierdo-menor-que-derecho">3.6 Subárbol Izquierdo Menor que Derecho</a></li>
+<li class="tocItem tocLevel3"><a href="#37-agenda-abb-eliminar-y-reinsertar">3.7 Agenda ABB (Eliminar y reinsertar)</a></li>
+<li class="tocItem tocLevel2"><a href="#4-tablas-hash-teoría">4. TABLAS HASH: TEORÍA</a></li>
+<li class="tocItem tocLevel3"><a href="#41-conceptos-básicos">4.1 Conceptos Básicos</a></li>
+<li class="tocItem tocLevel3"><a href="#42-resolución-de-colisiones">4.2 Resolución de Colisiones</a></li>
+<li class="tocItem tocLevel3"><a href="#43-rehashing">4.3 Rehashing</a></li>
+<li class="tocItem tocLevel3"><a href="#44-hash-vs-árboles-de-búsqueda">4.4 Hash vs Árboles de Búsqueda</a></li>
+<li class="tocItem tocLevel2"><a href="#5-grafos-teoría">5. GRAFOS: TEORÍA</a></li>
+<li class="tocItem tocLevel3"><a href="#51-definición-y-tipos">5.1 Definición y Tipos</a></li>
+<li class="tocItem tocLevel3"><a href="#52-representaciones">5.2 Representaciones</a></li>
+<li class="tocItem tocLevel3"><a href="#53-definiciones-importantes">5.3 Definiciones Importantes</a></li>
+<li class="tocItem tocLevel3"><a href="#54-recorridos-de-grafos">5.4 Recorridos de Grafos</a></li>
+<li class="tocItem tocLevel3"><a href="#55-caminos-de-coste-mínimo">5.5 Caminos de Coste Mínimo</a></li>
+<li class="tocItem tocLevel3"><a href="#56-árboles-generadores-mínimos-mst">5.6 Árboles Generadores Mínimos (MST)</a></li>
+<li class="tocItem tocLevel2"><a href="#6-grafos-código">6. GRAFOS: CÓDIGO</a></li>
+<li class="tocItem tocLevel3"><a href="#61-tad-grafop-grafo-ponderado">6.1 TAD GrafoP (Grafo Ponderado)</a></li>
+<li class="tocItem tocLevel3"><a href="#62-dijkstra">6.2 Dijkstra</a></li>
+<li class="tocItem tocLevel3"><a href="#63-floyd">6.3 Floyd</a></li>
+<li class="tocItem tocLevel3"><a href="#64-warshall-clausura-transitiva">6.4 Warshall (Clausura Transitiva)</a></li>
+<li class="tocItem tocLevel3"><a href="#65-tad-partición-union-find-para-kruskal">6.5 TAD Partición (Union-Find) para Kruskal</a></li>
+<li class="tocItem tocLevel3"><a href="#66-kruskal">6.6 Kruskal</a></li>
+<li class="tocItem tocLevel3"><a href="#67-prim">6.7 Prim</a></li>
+<li class="tocItem tocLevel2"><a href="#7-ejercicios-grafos-tipo-examen">7. EJERCICIOS GRAFOS (Tipo Examen)</a></li>
+<li class="tocItem tocLevel3"><a href="#71-ciudades-rebeldes-zuelandia">7.1 Ciudades Rebeldes (Zuelandia)</a></li>
+<li class="tocItem tocLevel3"><a href="#72-puentes-grecoland">7.2 Puentes Grecoland</a></li>
+<li class="tocItem tocLevel3"><a href="#73-toxicidad-zuelandia-líneas-aéreas-tumbuctú-repartidor-bebidas">7.3 Toxicidad Zuelandia / Líneas Aéreas Tumbuctú / Repartidor Bebidas</a></li>
+<li class="tocItem tocLevel3"><a href="#74-laberinto-3d-matriz-fauno-viajes-alergias">7.4 Laberinto 3D / Matriz Fauno / Viajes Alergias</a></li>
+<li class="tocItem tocLevel2"><a href="#8-estrategia-para-el-examen">8. ESTRATEGIA PARA EL EXAMEN</a></li>
+<li class="tocItem tocLevel3"><a href="#81-para-ejercicios-de-árboles">8.1 Para Ejercicios de Árboles</a></li>
+<li class="tocItem tocLevel3"><a href="#82-para-ejercicios-de-grafos">8.2 Para Ejercicios de Grafos</a></li>
+<li class="tocItem tocLevel3"><a href="#83-justificación-de-complejidad-importante-en-el-examen">8.3 Justificación de Complejidad (Importante en el Examen)</a></li>
+<li class="tocItem tocLevel3"><a href="#84-checklist-antes-de-entregar">8.4 Checklist antes de Entregar</a></li>
+<li class="tocItem tocLevel2"><a href="#recursos-adicionales">RECURSOS ADICIONALES</a></li>
+</ul></nav>
+    </aside>
+
+    <main id="content" class="content">
+      <h1 id="guía-de-estudio-ednl-examen-final">Guía de Estudio EDNL - Examen Final</h1>
+<blockquote>
+<p><strong>Formato del examen:</strong> Teoría + código C++ usando TADs (Abin, Agen, Abb, GrafoP) y ejercicios resueltos tipo examen con esqueletos de código y razonamiento.</p>
+</blockquote>
+<hr />
+<h2 id="índice">ÍNDICE</h2>
+<ol>
+<li><a href="#1-árboles-teoría">Árboles: Teoría</a></li>
+<li><a href="#2-árboles-código">Árboles: Implementación y Código</a></li>
+<li><a href="#3-ejercicios-árboles">Árboles: Ejercicios Tipo Examen</a></li>
+<li><a href="#4-tablas-hash">Tablas Hash: Teoría</a></li>
+<li><a href="#5-grafos-teoría">Grafos: Teoría</a></li>
+<li><a href="#6-grafos-código">Grafos: Implementación y Código</a></li>
+<li><a href="#7-ejercicios-grafos">Grafos: Ejercicios Tipo Examen</a></li>
+<li><a href="#8-estrategia">Estrategia para el Examen</a></li>
+</ol>
+<hr />
+<h2 id="1-árboles-teoría">1. ÁRBOLES: TEORÍA</h2>
+<h3 id="11-definición-y-componentes">1.1 Definición y Componentes</h3>
+<p><strong>Árbol:</strong> Conjunto de elementos (nodos) donde cada nodo tiene un padre (excepto la raíz) y cero o más hijos. Sin ciclos.</p>
+<p><strong>Definición formal:</strong>
+- Si <code>n</code> es un nodo y <code>A1, A2, ..., Ak</code> son árboles con raíces <code>n1, n2, ..., nk</code>
+- <code>n</code> es padre de <code>n1, n2, ..., nk</code> (estos son hijos, entre sí son hermanos)</p>
+<p><strong>Componentes:</strong>
+| Concepto | Definición |
+|-----------|------------|
+| <strong>Raíz</strong> | Único nodo sin ancestro |
+| <strong>Hoja</strong> | Nodo sin descendientes propios (no tiene hijos) |
+| <strong>Grado</strong> | Nº de hijos de un nodo. Grado del árbol = máximo grado de sus nodos |
+| <strong>Camino</strong> | Sucesión de nodos n1, n2, ..., nk donde ni es padre de ni+1 |
+| <strong>Longitud</strong> | Nº de aristas en un camino = k-1 |
+| <strong>Ancestros</strong> | Nodos en el camino desde la raíz hasta un nodo |
+| <strong>Descendientes</strong> | Nodos que tienen a <code>n</code> como ancestro |
+| <strong>Altura</strong> | Longitud de la rama más larga desde un nodo hasta una hoja. Altura del árbol = altura de la raíz |
+| <strong>Profundidad</strong> | Longitud del camino único desde la raíz hasta el nodo (también: nivel) |
+| <strong>Subárbol</strong> | Conjunto formado por un nodo y todos sus descendientes |
+| <strong>Rama</strong> | Camino que termina en una hoja |</p>
+<h3 id="12-árbol-binario-tad-abin">1.2 Árbol Binario (TAD Abin)</h3>
+<p>Árbol donde cada nodo tiene <strong>0, 1 o 2 hijos</strong> (grado ≤ 2).</p>
+<p><strong>Especificación del TAD Abin:</strong></p>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">template &lt;typename T&gt; class Abin {
+public:
+    Abin();                          // Crea árbol vacío
+    void insertarRaiz(const T&amp; e);    // Inserta raíz (árbol vacío)
+    void insertarHijoIzqdo(nodo n, const T&amp; e);  // Inserta hijo izquierdo
+    void insertarHijoDrcho(nodo n, const T&amp; e);   // Inserta hijo derecho
+    void eliminarHijoIzqdo(nodo n);     // Elimina hijo izquierdo (debe ser hoja)
+    void eliminarHijoDrcho(nodo n);      // Elimina hijo derecho (debe ser hoja)
+    bool arbolVacio() const;             // ¿Está vacío?
+    const T&amp; elemento(nodo n) const;     // Devuelve elemento del nodo
+    nodo raiz() const;                    // Devuelve nodo raíz (o NODO_NULO)
+    nodo padre(nodo n) const;             // Devuelve padre de n
+    nodo hijoIzqdo(nodo n) const;       // Devuelve hijo izquierdo
+    nodo hijoDrcho(nodo n) const;        // Devuelve hijo derecho
+    static const nodo NODO_NULO;         // Representa &quot;nodo inexistente&quot;
+private:
+    // Una de las siguientes implementaciones...
+};
+</code></pre></div>
+<p><strong>Recorridos de un AB:</strong>
+| Recorrido | Orden | Uso típico |
+|-----------|-------|-------------|
+| <strong>Preorden</strong> | Nodo → Izq → Der | Copiar árbol, prefijos |
+| <strong>Inorden</strong> | Izq → Nodo → Der | ABB → claves ordenadas |
+| <strong>Postorden</strong> | Izq → Der → Nodo | Eliminar árbol, sufijos |
+| <strong>Por niveles (BFS)</strong> | Nivel 0, 1, 2... | Distancia a raíz, árboles completos |</p>
+<p><img alt="Recorridos Abin" src="assets/diagrams/abin-recorridos.svg" /></p>
+<h3 id="13-árbol-general-tad-agen">1.3 Árbol General (TAD Agen)</h3>
+<p>Árbol donde cada nodo puede tener <strong>cualquier número de hijos</strong>.</p>
+<p><strong>Diferencia clave vs binario:</strong> No hay hijo derecho/izquierdo, sino <strong>hijo izquierdo</strong> y <strong>hermano derecho</strong>.</p>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">template &lt;typename T&gt; class Agen {
+public:
+    Agen();
+    void insertarHijoIzqdo(nodo n, const T&amp; e);  // Primer hijo (o nuevo primer hijo)
+    void insertarHermDrcho(nodo n, const T&amp; e);   // Hermano derecho de n
+    nodo hijoIzqdo(nodo n) const;      // Primer hijo
+    nodo hermDrcho(nodo n) const;       // Siguiente hermano
+    // ... resto similar a Abin
+};
+</code></pre></div>
+<p><strong>Truco:</strong> Representar árbol general como binario (hijo-hermano):
+- Hijo izquierdo = primer hijo
+- Hijo derecho = siguiente hermano</p>
+<p><img alt="Agen hijo-hermano" src="assets/diagrams/agen-hijo-hermano.svg" /></p>
+<h3 id="14-abb-árbol-binario-de-búsqueda">1.4 ABB (Árbol Binario de Búsqueda)</h3>
+<p><strong>Invariante:</strong> Para cada nodo <code>n</code>:
+- Claves en subárbol izquierdo &lt; elemento(n)
+- Claves en subárbol derecho &gt; elemento(n)
+- No hay valores repetidos (estricto)</p>
+<p><strong>Complejidad:</strong>
+- Mejor caso (equilibrado): O(log n)
+- Peor caso (degenerado en lista): O(n)</p>
+<p><strong>Operaciones típicas:</strong>
+- <code>buscar(e)</code>: devuelve subárbol cuya raíz contiene e
+- <code>insertar(e)</code>: inserta manteniendo invariante
+- <code>eliminar(e)</code>: 3 casos (hoja / 1 hijo / 2 hijos)</p>
+<p><strong>Ínfimo/Supremo:</strong>
+- Ínfimo(x): mayor clave ≤ x
+- Supremo(x): menor clave ≥ x</p>
+<h3 id="15-árboles-equilibrados-avl-y-arn">1.5 Árboles Equilibrados (AVL y ARN)</h3>
+<p><strong>AVL:</strong> ABB + para cada nodo: |h(izq) - h(der)| ≤ 1</p>
+<p><strong>Rotaciones AVL:</strong> LL, RR, LR, RL (re-equilibran tras inserción/eliminación)</p>
+<p><strong>ARN (Rojo-Negro):</strong> ABB coloreado (rojo/negro) con propiedades de equilibrio.
+- Garantiza altura O(log n)
+- Menos rotaciones que AVL en inserción/eliminación</p>
+<p><strong>Comparación:</strong>
+| Criterio | AVL | ARN |
+|----------|-----|-----|
+| Equilibrio | Más estricto (deseq ≤ 1) | Más flexible |
+| Búsqueda | Más rápida (árbol más equilibrado) | Ligeramente más lenta |
+| Inserción/Eliminación | Más rotaciones | Menos rotaciones |</p>
+<h3 id="16-árboles-parcialmente-ordenados-apo-heap">1.6 Árboles Parcialmente Ordenados (APO / Heap)</h3>
+<p><strong>Propiedad:</strong> Cada nodo ≤ (min-heap) o ≥ (max-heap) que sus hijos.</p>
+<p><strong>Operaciones:</strong>
+- <code>insertar(e)</code>: colocar al final + flotar (sift-up)
+- <code>extraerMin/Max()</code>: sacar raíz, subir último a raíz + hundir (sift-down)
+- <code>consultarMin/Max()</code>: O(1)</p>
+<p><strong>Implementación típica:</strong> Vector (como heap binario completo):
+- Hijo izquierdo de i: 2i+1 (si 0-indexed)
+- Hijo derecho de i: 2i+2</p>
+<p><img alt="Heap en array" src="assets/diagrams/heap-indices.svg" /></p>
+<hr />
+<h2 id="2-árboles-código">2. ÁRBOLES: CÓDIGO</h2>
+<h3 id="21-implementación-enlazada-de-abin">2.1 Implementación Enlazada de Abin</h3>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">template &lt;typename T&gt; class Abin {
+public:
+    typedef celda* nodo;  // O usar índices según diseño
+    // ...
+private:
+    struct celda {
+        T elto;
+        nodo padre, hizq, hder;
+        celda(const T&amp; e, nodo p = NODO_NULO)
+            : elto(e), padre(p), hizq(NODO_NULO), hder(NODO_NULO) {}
+    };
+    nodo r;  // raíz
+    static const nodo NODO_NULO = nullptr;  // o índice especial
+};
+</code></pre></div>
+<p><strong>Cálculo de altura:</strong></p>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">template &lt;typename T&gt;
+int alturaAbin_rec(typename Abin&lt;T&gt;::nodo n, const Abin&lt;T&gt;&amp; A) {
+    if (n == Abin&lt;T&gt;::NODO_NULO) return -1;  // convenio: altura nodo nulo = -1
+    return 1 + std::max(
+        alturaAbin_rec(A.hijoIzqdo(n), A),
+        alturaAbin_rec(A.hijoDrcho(n), A)
+    );
+}
+</code></pre></div>
+<p><strong>Cálculo de número de nodos:</strong></p>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">template &lt;typename T&gt;
+size_t contarNodos(const Abin&lt;T&gt;&amp; A) {
+    if (A.arbolVacio()) return 0;
+    return contarNodos_rec(A.raiz(), A);
+}
+
+template &lt;typename T&gt;
+size_t contarNodos_rec(typename Abin&lt;T&gt;::nodo n, const Abin&lt;T&gt;&amp; A) {
+    if (n == Abin&lt;T&gt;::NODO_NULO) return 0;
+    return 1 
+        + contarNodos_rec(A.hijoIzqdo(n), A)
+        + contarNodos_rec(A.hijoDrcho(n), A);
+}
+</code></pre></div>
+<h3 id="22-inserción-y-eliminación-en-abb">2.2 Inserción y Eliminación en ABB</h3>
+<p><strong>Buscar en ABB:</strong></p>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">template &lt;typename T&gt;
+const Abb&lt;T&gt;&amp; Abb&lt;T&gt;::buscar(const T&amp; e) const {
+    if (r == nullptr) return *this;           // árbol vacío
+    else if (e &lt; r-&gt;elto) return r-&gt;izq.buscar(e);  // subárbol izquierdo
+    else if (r-&gt;elto &lt; e) return r-&gt;der.buscar(e);  // subárbol derecho
+    else return *this;  // encontrado
+}
+</code></pre></div>
+<p><strong>Eliminación (3 casos):</strong></p>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">// Caso 1: Hoja → eliminar directamente
+// Caso 2: Un hijo → sustituir por ese hijo
+// Caso 3: Dos hijos → sustituir por ínfimo del der o sup del izq
+</code></pre></div>
+<h3 id="23-ejercicio-típico-árbol-binario-reflejado">2.3 Ejercicio Típico: Árbol Binario Reflejado</h3>
+<p><strong>Enunciado:</strong> Dado un árbol binario, crear otro intercambiando los subárboles.</p>
+<p><strong>Idea clave:</strong> reflejar = intercambiar sistemáticamente <strong>hijo izquierdo ↔ hijo derecho</strong> en cada nodo.</p>
+<p><strong>Paso a paso (receta):</strong>
+1. Crear árbol <code>B</code> vacío.
+2. Si <code>A</code> está vacío → devolver <code>B</code>.
+3. Copiar la raíz de <code>A</code> en la raíz de <code>B</code>.
+4. DFS recursivo: para cada nodo <code>a</code> en <code>A</code> y su “espejo” <code>b</code> en <code>B</code>:
+   - Si existe <code>hijoDrcho(a)</code> → insertarlo como <code>hijoIzqdo(b)</code>.
+   - Si existe <code>hijoIzqdo(a)</code> → insertarlo como <code>hijoDrcho(b)</code>.
+   - Repetir con los pares de hijos correspondientes.</p>
+<blockquote>
+<p><strong>Caso borde:</strong> árbol vacío → resultado vacío.</p>
+</blockquote>
+<details>
+  <summary>Ver solución (C++)</summary>
+
+
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">template &lt;typename T&gt;
+Abin&lt;T&gt; AbinReflejado(const Abin&lt;T&gt;&amp; A) {
+    Abin&lt;T&gt; Reflejado;
+    if (!A.arbolVacio()) {
+        Reflejado.insertarRaiz(A.elemento(A.raiz()));
+        AbinReflejado_rec(A.raiz(), Reflejado.raiz(), A, Reflejado);
+    }
+    return Reflejado;
+}
+
+template &lt;typename T&gt;
+void AbinReflejado_rec(typename Abin&lt;T&gt;::nodo a,
+                       typename Abin&lt;T&gt;::nodo b,
+                       const Abin&lt;T&gt;&amp; A,
+                       Abin&lt;T&gt;&amp; B) {
+    if (a != Abin&lt;T&gt;::NODO_NULO) {
+        // Insertar hijo izquierdo de B = hijo derecho de A
+        if (A.hijoDrcho(a) != Abin&lt;T&gt;::NODO_NULO)
+            B.insertarHijoIzqdo(b, A.elemento(A.hijoDrcho(a)));
+        AbinReflejado_rec(A.hijoDrcho(a), B.hijoIzqdo(b), A, B);
+
+        // Insertar hijo derecho de B = hijo izquierdo de A
+        if (A.hijoIzqdo(a) != Abin&lt;T&gt;::NODO_NULO)
+            B.insertarHijoDrcho(b, A.elemento(A.hijoIzqdo(a)));
+        AbinReflejado_rec(A.hijoIzqdo(a), B.hijoDrcho(b), A, B);
+    }
+}
+</code></pre></div>
+
+
+<p><strong>Complejidad:</strong> O(n) (visitas cada nodo una vez). <strong>Espacio:</strong> O(h) por la recursión.</p>
+<p><strong>Ojo:</strong> no llames a <code>elemento()</code> con <code>NODO_NULO</code>. Primero comprueba si el hijo existe.</p>
+</details>
+
+<h3 id="24-comprobar-si-un-árbol-es-avl">2.4 Comprobar si un Árbol es AVL</h3>
+<p><strong>Qué hay que demostrar:</strong> que en <strong>cada nodo</strong> se cumple <code>|h(izq) - h(der)| ≤ 1</code> y que los dos subárboles también son AVL.</p>
+<p><strong>Intuición:</strong> si recalculas altura desde cero en cada nodo te sale O(n²). En examen, la solución “limpia” es devolver (AVL?, altura) en un solo recorrido.</p>
+<p><strong>Plantilla (pasos):</strong>
+1. Caso base: nodo nulo → (true, -1) (convenio típico).
+2. Resolver recursivamente izquierda y derecha.
+3. Altura = 1 + max(hIzq, hDer).
+4. AVL? = izqOK &amp;&amp; derOK &amp;&amp; |hIzq-hDer| ≤ 1.</p>
+<blockquote>
+<p><strong>Caso borde:</strong> define el convenio de altura (muy típico: altura(nulo) = -1, altura(hoja)=0).</p>
+</blockquote>
+<details>
+  <summary>Ver solución (C++)</summary>
+
+
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">template &lt;typename T&gt;
+bool esAVL(const Abin&lt;T&gt;&amp; A) {
+    return esAVL_rec(A.raiz(), A).first;  // .first = ¿es AVL?
+}
+
+template &lt;typename T&gt;
+std::pair&lt;bool, int&gt; esAVL_rec(typename Abin&lt;T&gt;::nodo n, const Abin&lt;T&gt;&amp; A) {
+    if (n == Abin&lt;T&gt;::NODO_NULO) 
+        return {true, -1};  // Nodo nulo: equilibrado, altura -1
+
+    auto [izqOK, hIzq] = esAVL_rec(A.hijoIzqdo(n), A);
+    auto [derOK, hDer] = esAVL_rec(A.hijoDrcho(n), A);
+
+    int altura = 1 + std::max(hIzq, hDer);
+    bool equilibrado = izqOK &amp;&amp; derOK &amp;&amp; std::abs(hIzq - hDer) &lt;= 1;
+
+    return {equilibrado, altura};
+}
+</code></pre></div>
+
+
+<p><strong>Complejidad:</strong> O(n). <strong>Espacio:</strong> O(h) por recursión.</p>
+<p><strong>Errores típicos:</strong> (1) mezclar convenios de altura, (2) recalcular alturas con una función aparte dentro de la recursión (te vas a O(n²)).</p>
+</details>
+
+<hr />
+<h2 id="3-ejercicios-árboles-tipo-examen">3. EJERCICIOS ÁRBOLES (Tipo Examen)</h2>
+<h3 id="31-árbol-binario-reflejado-visto-arriba">3.1 Árbol Binario Reflejado ✅ (Visto arriba)</h3>
+<h3 id="32-árbol-general-reflejado">3.2 Árbol General Reflejado</h3>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">template &lt;typename T&gt;
+Agen&lt;T&gt; AgenReflejado(const Agen&lt;T&gt;&amp; A) {
+    Agen&lt;T&gt; Reflejado;
+    if (!A.arbolVacio()) {
+        Reflejado.insertarRaiz(A.elemento(A.raiz()));
+        AgenReflejado_rec(A.raiz(), Reflejado.raiz(), A, Reflejado);
+    }
+    return Reflejado;
+}
+// Lógica: intercambiar primer hijo ↔ hermano derecho recursivamente
+</code></pre></div>
+<h3 id="33-árboles-generales-similares">3.3 Árboles Generales Similares</h3>
+<p><strong>Enunciado:</strong> Determinar si dos árboles generales tienen la misma estructura (mismo número de hijos en cada nodo, misma forma).</p>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">template &lt;typename T&gt;
+bool similares(const Agen&lt;T&gt;&amp; A, const Agen&lt;T&gt;&amp; B) {
+    return similares_rec(A.raiz(), A, B.raiz(), B);
+}
+// Caso base: ambos nulos → true; uno nulo otro no → false
+// Comparar recursivamente: primer hijo A vs primer hijo B (y sus hermanos)
+</code></pre></div>
+<h3 id="34-contar-nodos-verdes-o-con-cierta-propiedad">3.4 Contar Nodos "Verdes" (o con cierta propiedad)</h3>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">// Ejemplo: contar nodos que cumplen predicado P
+template &lt;typename T&gt;
+size_t contarNodosVerdes(typename Abin&lt;T&gt;::nodo n, const Abin&lt;T&gt;&amp; A) {
+    if (n == Abin&lt;T&gt;::NODO_NULO) return 0;
+    size_t cuenta = (esVerde(A.elemento(n))) ? 1 : 0;
+    return cuenta 
+        + contarNodosVerdes(A.hijoIzqdo(n), A)
+        + contarNodosVerdes(A.hijoDrcho(n), A);
+}
+</code></pre></div>
+<h3 id="35-flotarhundir-nodos-heap-operations">3.5 Flotar/Hundir Nodos (heap operations)</h3>
+<p><strong>Qué es:</strong> operaciones básicas de un <strong>heap binario</strong> tras insertar (flotar) o tras extraer la raíz (hundir).</p>
+<p><strong>Idea clave:</strong> en un heap en array, solo puede violarse la propiedad en el camino desde el nodo insertado hacia la raíz (flotar) o desde la raíz hacia abajo (hundir).</p>
+<p><strong>Plantilla (pasos):</strong>
+- Flotar: mientras <code>i &gt; 0</code> y heap[i] “mejor” que su padre → intercambiar y subir.
+- Hundir: mientras exista hijo → intercambiar con el mejor hijo (min hijo para min-heap).</p>
+<blockquote>
+<p><strong>Caso borde:</strong> en <code>hundir</code>, comprueba siempre si existe hijo derecho antes de compararlo.</p>
+</blockquote>
+<details>
+  <summary>Ver solución (C++)</summary>
+
+
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">// Flotar (usado tras inserción en heap)
+template &lt;typename T&gt;
+void flotar(vector&lt;T&gt;&amp; heap, size_t i) {
+    while (i &gt; 0) {
+        size_t padre = (i - 1) / 2;
+        if (heap[i] &gt;= heap[padre]) break;  // min-heap
+        swap(heap[i], heap[padre]);
+        i = padre;
+    }
+}
+
+// Hundir (usado tras extraer mínimo)
+template &lt;typename T&gt;
+void hundir(vector&lt;T&gt;&amp; heap, size_t i) {
+    size_t n = heap.size();
+    while (2*i + 1 &lt; n) {
+        size_t hijo = 2*i + 1;
+        if (hijo + 1 &lt; n &amp;&amp; heap[hijo + 1] &lt; heap[hijo]) hijo++;
+        if (heap[i] &lt;= heap[hijo]) break;
+        swap(heap[i], heap[hijo]);
+        i = hijo;
+    }
+}
+</code></pre></div>
+
+
+<p><strong>Complejidad:</strong> O(log n) en ambos casos. <strong>Espacio:</strong> O(1).</p>
+<p><strong>Errores típicos:</strong> (1) olvidar actualizar <code>i</code>, (2) elegir mal el hijo en min-heap, (3) no controlar límites del array.</p>
+</details>
+
+<h3 id="36-subárbol-izquierdo-menor-que-derecho">3.6 Subárbol Izquierdo Menor que Derecho</h3>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">// Verificar si para todo nodo: suma(subárbol izquierdo) &lt; suma(subárbol derecho)
+template &lt;typename T&gt;
+bool subarbolIzqMenorDer(const Abin&lt;T&gt;&amp; A) {
+    return subarbolIzqMenorDer_rec(A.raiz(), A).first;
+}
+// Retornar {cumple, suma} para cada subárbol
+</code></pre></div>
+<h3 id="37-agenda-abb-eliminar-y-reinsertar">3.7 Agenda ABB (Eliminar y reinsertar)</h3>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">// Construir ABB de contactos (clave = nombre, dato = teléfono)
+// Buscar, insertar, eliminar con criterio ABB
+</code></pre></div>
+<hr />
+<h2 id="4-tablas-hash-teoría">4. TABLAS HASH: TEORÍA</h2>
+<h3 id="41-conceptos-básicos">4.1 Conceptos Básicos</h3>
+<p><strong>Tabla Hash:</strong> Estructura para asociar clave → posición mediante función hash <code>h(clave)</code>.</p>
+<p><strong>Función hash ideal:</strong> Uniforme (distribuye claves uniformemente), rápida de calcular.</p>
+<p><strong>Factor de carga:</strong> α = n/m (n = elementos, m = tamaño tabla)
+- α alto → más colisiones → peor rendimiento
+- Umbral típico para rehashing: α ≈ 0.7-0.8</p>
+<h3 id="42-resolución-de-colisiones">4.2 Resolución de Colisiones</h3>
+<p><img alt="Colisiones hash" src="assets/diagrams/hash-colisiones.svg" /></p>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Idea</th>
+<th>Ventajas</th>
+<th>Inconvenientes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hashing cerrado</strong></td>
+<td>Todos los elementos en el array. Sondeo (lineal, cuadrático, doble hash)</td>
+<td>Sin punteros extra</td>
+<td>Borrado complejo (tumbas), agrupación</td>
+</tr>
+<tr>
+<td><strong>Hashing abierto</strong></td>
+<td>Cada posición apunta a lista (encadenamiento)</td>
+<td>Borrado sencillo</td>
+<td>Overhead de punteros</td>
+</tr>
+<tr>
+<td><strong>Encadenamiento mezclado</strong></td>
+<td>Híbrido</td>
+<td>Balance</td>
+<td>Más complejo</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-rehashing">4.3 Rehashing</h3>
+<p>Cuando α supera umbral:
+1. Crear tabla mayor (típicamente 2×)
+2. Reinsertar todas las claves (recalcular hash)
+3. Coste amortizado: O(1)</p>
+<h3 id="44-hash-vs-árboles-de-búsqueda">4.4 Hash vs Árboles de Búsqueda</h3>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Hash (esperado)</th>
+<th>ABB equilibrado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Búsqueda</td>
+<td>O(1)</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td>Inserción</td>
+<td>O(1)</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td>Orden</td>
+<td>No mantiene orden</td>
+<td>Sí (inorden)</td>
+</tr>
+<tr>
+<td>Dependencia</td>
+<td>Calidad del hash</td>
+<td>Equilibrio del árbol</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-grafos-teoría">5. GRAFOS: TEORÍA</h2>
+<h3 id="51-definición-y-tipos">5.1 Definición y Tipos</h3>
+<p><strong>Grafo G = (V, A):</strong>
+- V: conjunto de vértices (nodos)
+- A: conjunto de aristas/arcos (pares de vértices)</p>
+<p><strong>Tipos:</strong>
+- <strong>No dirigido:</strong> (v, w) = (w, v)
+- <strong>Dirigido:</strong> (v, w) ≠ (w, v) (arco)
+- <strong>Ponderado:</strong> cada arista tiene un peso (coste, distancia, tiempo)</p>
+<h3 id="52-representaciones">5.2 Representaciones</h3>
+<table>
+<thead>
+<tr>
+<th>Representación</th>
+<th>Espacio</th>
+<th>Comprobar arista (v,w)</th>
+<th>Iterar vecinos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Matriz adyacencia</strong></td>
+<td>O(V²)</td>
+<td>O(1)</td>
+<td>O(V)</td>
+</tr>
+<tr>
+<td><strong>Lista adyacencia</strong></td>
+<td>O(V+E)</td>
+<td>O(grado(v))</td>
+<td>O(grado(v))</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cuándo usar cuál:</strong>
+- Grafo denso (muchas aristas): matriz
+- Grafo disperso (pocas aristas): lista</p>
+<h3 id="53-definiciones-importantes">5.3 Definiciones Importantes</h3>
+<ul>
+<li><strong>Grado (no dirigido):</strong> nº aristas incidentes al vértice</li>
+<li><strong>Grado entrada/salida (dirigido):</strong> aristas que llegan / salen</li>
+<li><strong>Camino:</strong> sucesión de vértices n1, n2, ..., nk donde (ni, ni+1) ∈ A</li>
+<li><strong>Longitud:</strong> nº de aristas = k-1</li>
+<li><strong>Grafo conexo:</strong> hay camino entre cualquier par de vértices</li>
+<li><strong>Grafo completo:</strong> hay arista entre cada par de vértices</li>
+<li><strong>Subgrafo:</strong> G' = (V', A') donde A' ⊆ A y V' son vértices de esas aristas</li>
+</ul>
+<h3 id="54-recorridos-de-grafos">5.4 Recorridos de Grafos</h3>
+<p><strong>BFS (Anchura):</strong>
+- Usa cola
+- Calcula distancias mínimas (en nº de aristas) en grafos no ponderados
+- Produce árbol de expansión por niveles</p>
+<p><strong>DFS (Profundidad):</strong>
+- Usa pila o recursión
+- Explorar componentes, detectar ciclos, orden topológico (DAG)</p>
+<h3 id="55-caminos-de-coste-mínimo">5.5 Caminos de Coste Mínimo</h3>
+<p><strong>Dijkstra:</strong>
+- ✅ Requiere: pesos no negativos
+- ✅ Calcula: caminos mínimos desde un origen a todos los vértices
+- Con cola prioridad: O((V+E) log V)
+- ❌ NO usar con pesos negativos</p>
+<p><strong>Floyd:</strong>
+- Calcula: caminos mínimos entre TODOS los pares
+- Programación dinámica: O(V³) tiempo, O(V²) espacio
+- Versión booleana: Warshall (clausura transitiva / alcanzabilidad)</p>
+<h3 id="56-árboles-generadores-mínimos-mst">5.6 Árboles Generadores Mínimos (MST)</h3>
+<p><strong>Kruskal:</strong>
+1. Ordenar aristas por peso creciente
+2. Añadir arista si no crea ciclo (usar Union-Find)
+3. Repetir hasta tener V-1 aristas</p>
+<p><strong>Prim:</strong>
+1. Crecer árbol desde un vértice
+2. Añadir arista mínima que conecte árbol con vértice nuevo
+3. Con heap: O(E log V)</p>
+<p><strong>Union-Find (TAD Partición):</strong>
+- <code>make-set</code>, <code>find</code>, <code>union</code>
+- Con compresión de caminos + unión por rango: casi O(1) amortizado</p>
+<hr />
+<h2 id="6-grafos-código">6. GRAFOS: CÓDIGO</h2>
+<h3 id="61-tad-grafop-grafo-ponderado">6.1 TAD GrafoP (Grafo Ponderado)</h3>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">template &lt;typename tCoste&gt;
+class GrafoP {
+public:
+    typedef size_t vertice;
+    GrafoP(size_t n, const tCoste&amp; c = INFINITO);
+    size_t numVert() const { return ady.size(); }
+    const vector&lt;tCoste&gt;&amp; operator[](vertice v) const { return ady[v]; }
+    static const tCoste INFINITO;
+private:
+    vector&lt;vector&lt;tCoste&gt;&gt; ady;  // matriz de costes
+};
+</code></pre></div>
+<h3 id="62-dijkstra">6.2 Dijkstra</h3>
+<p><img alt="Relajación en Dijkstra" src="assets/diagrams/dijkstra-relajacion.svg" /></p>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">template &lt;typename tCoste&gt;
+vector&lt;tCoste&gt; Dijkstra(const GrafoP&lt;tCoste&gt;&amp; G,
+                          typename GrafoP&lt;tCoste&gt;::vertice origen,
+                          vector&lt;typename GrafoP&lt;tCoste&gt;::vertice&gt;&amp; P) {
+    typedef typename GrafoP&lt;tCoste&gt;::vertice vertice;
+    const size_t n = G.numVert();
+    vector&lt;tCoste&gt; D(n, INFINITO);     // distancias mínimas
+    P = vector&lt;vertice&gt;(n, origen);    // vértice anterior
+    vector&lt;bool&gt; S(n, false);           // conjunto de vértices finalizados
+
+    D[origen] = 0;
+    for (size_t i = 0; i &lt; n; i++) {
+        // Seleccionar vértice w no en S con D mínimo
+        vertice w = 0;
+        tCoste costeMinimo = INFINITO;
+        for (vertice v = 0; v &lt; n; v++)
+            if (!S[v] &amp;&amp; D[v] &lt; costeMinimo) {
+                costeMinimo = D[v];
+                w = v;
+            }
+        S[w] = true;
+
+        // Recalcular D a través de w
+        for (vertice v = 0; v &lt; n; v++) {
+            tCoste Owv = suma(D[w], G[w][v]);
+            if (Owv &lt; D[v]) {
+                D[v] = Owv;
+                P[v] = w;
+            }
+        }
+    }
+    return D;
+}
+
+template &lt;typename tCoste&gt;
+tCoste suma(tCoste x, tCoste y) {
+    if (x == INFINITO || y == INFINITO) return INFINITO;
+    return x + y;
+}
+</code></pre></div>
+<h3 id="63-floyd">6.3 Floyd</h3>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">template &lt;typename tCoste&gt;
+matriz&lt;tCoste&gt; Floyd(const GrafoP&lt;tCoste&gt;&amp; G,
+                     matriz&lt;typename GrafoP&lt;tCoste&gt;::vertice&gt;&amp; P) {
+    typedef typename GrafoP&lt;tCoste&gt;::vertice vertice;
+    const size_t n = G.numVert();
+    matriz&lt;tCoste&gt; A(n);  // matriz de costes mínimos
+
+    // Inicializar con costes del grafo
+    for (vertice i = 0; i &lt; n; i++) {
+        A[i] = G[i];
+        A[i][i] = 0;  // coste a sí mismo = 0
+        P[i] = vector&lt;vertice&gt;(n, i);  // vértice intermedio inicial
+    }
+
+    // DP: camino mínimo pasando por k
+    for (vertice k = 0; k &lt; n; k++)
+        for (vertice i = 0; i &lt; n; i++)
+            for (vertice j = 0; j &lt; n; j++) {
+                tCoste ikj = suma(A[i][k], A[k][j]);
+                if (ikj &lt; A[i][j]) {
+                    A[i][j] = ikj;
+                    P[i][j] = k;  // pasa por k
+                }
+            }
+    return A;
+}
+</code></pre></div>
+<h3 id="64-warshall-clausura-transitiva">6.4 Warshall (Clausura Transitiva)</h3>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">matriz&lt;bool&gt; Warshall(const Grafo&amp; G) {
+    const size_t n = G.numVert();
+    matriz&lt;bool&gt; A(n);
+
+    // Inicializar: hay camino si hay arista directa
+    for (size_t i = 0; i &lt; n; i++) {
+        for (size_t j = 0; j &lt; n; j++)
+            A[i][j] = (i == j) || (G[i][j] != INFINITO);
+    }
+
+    // Clausura transitiva: camino pasando por k
+    for (size_t k = 0; k &lt; n; k++)
+        for (size_t i = 0; i &lt; n; i++)
+            for (size_t j = 0; j &lt; n; j++)
+                A[i][j] = A[i][j] || (A[i][k] &amp;&amp; A[k][j]);
+
+    return A;
+}
+</code></pre></div>
+<h3 id="65-tad-partición-union-find-para-kruskal">6.5 TAD Partición (Union-Find) para Kruskal</h3>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">class Particion {
+public:
+    Particion(int n) : padre(n, -1) {}  // cada elemento es su propio representante
+
+    void unir(int a, int b) {
+        // Unir subconjuntos de a y b (por altura)
+        int raizA = encontrar(a), raizB = encontrar(b);
+        if (raizA == raizB) return;
+        if (padre[raizA] &gt; padre[raizB]) swap(raizA, raizB);  // raizA más alta
+        if (padre[raizA] == padre[raizB]) padre[raizA]--;  // mismo tamaño → crece altura
+        padre[raizB] = raizA;  // raizB cuelga de raizA
+    }
+
+    int encontrar(int x) const {
+        int raiz = x;
+        while (padre[raiz] &gt;= 0) raiz = padre[raiz];  // buscar raíz
+        // Compresión de caminos
+        while (x != raiz) {
+            int y = padre[x];
+            padre[x] = raiz;
+            x = y;
+        }
+        return raiz;
+    }
+private:
+    mutable vector&lt;int&gt; padre;  // padre[i] &lt; 0 → es raíz (valor = -altura)
+};
+</code></pre></div>
+<h3 id="66-kruskal">6.6 Kruskal</h3>
+<p><img alt="MST: Kruskal vs Prim" src="assets/diagrams/mst-kruskal-prim.svg" /></p>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">// Estructura para aristas
+struct Arista {
+    size_t orig, dest;
+    size_t peso;
+};
+
+GrafoP&lt;size_t&gt; Kruskal(const GrafoP&lt;size_t&gt;&amp; G) {
+    const size_t n = G.numVert();
+    GrafoP&lt;size_t&gt; MST(n);  // árbol generador (inicialmente sin aristas)
+    Particion P(n);
+
+    // Recopilar y ordenar aristas por peso
+    vector&lt;Arista&gt; aristas;
+    for (size_t i = 0; i &lt; n; i++)
+        for (size_t j = i+1; j &lt; n; j++)  // grafo no dirigido
+            if (G[i][j] != INFINITO)
+                aristas.push_back({i, j, G[i][j]});
+
+    sort(aristas.begin(), aristas.end(),
+         [](const Arista&amp; a, const Arista&amp; b) { return a.peso &lt; b.peso; });
+
+    size_t aristasMST = 0;
+    for (const auto&amp; a : aristas) {
+        if (aristasMST &gt;= n-1) break;
+        int raizOrig = P.encontrar(a.orig);
+        int raizDest = P.encontrar(a.dest);
+        if (raizOrig != raizDest) {  // no crea ciclo
+            MST[a.orig][a.dest] = MST[a.dest][a.orig] = a.peso;
+            P.unir(raizOrig, raizDest);
+            aristasMST++;
+        }
+    }
+    return MST;
+}
+</code></pre></div>
+<h3 id="67-prim">6.7 Prim</h3>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">GrafoP&lt;size_t&gt; Prim(const GrafoP&lt;size_t&gt;&amp; G) {
+    const size_t n = G.numVert();
+    GrafoP&lt;size_t&gt; MST(n);
+    vector&lt;bool&gt; enMST(n, false);
+    vector&lt;size_t&gt; coste(n, INFINITO);
+    vector&lt;size_t&gt; padre(n, n);  // padre en MST
+
+    coste[0] = 0;  // empezar desde vértice 0
+
+    for (size_t i = 0; i &lt; n; i++) {
+        // Seleccionar vértice fuera del MST con coste mínimo
+        size_t v = 0;
+        size_t minCoste = INFINITO;
+        for (size_t u = 0; u &lt; n; u++)
+            if (!enMST[u] &amp;&amp; coste[u] &lt; minCoste) {
+                minCoste = coste[u];
+                v = u;
+            }
+
+        enMST[v] = true;
+        if (padre[v] != n)  // no es la raíz
+            MST[v][padre[v]] = MST[padre[v]][v] = G[v][padre[v]];
+
+        // Actualizar costes a través de v
+        for (size_t u = 0; u &lt; n; u++)
+            if (!enMST[u] &amp;&amp; G[v][u] &lt; coste[u]) {
+                coste[u] = G[v][u];
+                padre[u] = v;
+            }
+    }
+    return MST;
+}
+</code></pre></div>
+<hr />
+<h2 id="7-ejercicios-grafos-tipo-examen">7. EJERCICIOS GRAFOS (Tipo Examen)</h2>
+<h3 id="71-ciudades-rebeldes-zuelandia">7.1 Ciudades Rebeldes (Zuelandia)</h3>
+<p><strong>Enunciado:</strong> Calcular matriz de costes mínimos para viajar entre ciudades de Zuelandia donde:
+- a) Carreteras de un solo sentido (grafo dirigido)
+- b) Ciudades rebeldes inaccesibles (no pueden usarse)
+- c) Carreteras cortadas (no pueden usarse)
+- d) Todos los viajes deben pasar por la capital</p>
+<p><strong>Solución:</strong> Usar Floyd modificado + obligar paso por capital.</p>
+<p><strong>Cómo pensarlo (modo profe):</strong>
+1. <strong>Modela el grafo</strong> dirigido con pesos (carreteras).
+2. <strong>Aplica restricciones</strong> antes de buscar mínimos:
+   - Ciudad rebelde <code>c</code>: anula <strong>toda entrada</strong> a <code>c</code> (y si tu enunciado lo pide, también salidas).
+   - Carretera cortada (u,v): pon su coste a INFINITO.
+3. Si <strong>todo debe pasar por la capital</strong>, entonces el coste i→j se transforma en:
+   - <code>coste(i,j) = coste(i,Capital) + coste(Capital,j)</code>
+4. Calcula distancias desde capital y hacia capital (en grafo inverso) con Dijkstra, o usa Floyd si el enunciado lo pide explícito.</p>
+<blockquote>
+<p><strong>Ojo:</strong> si hay aristas con pesos negativos, Dijkstra no aplica. En los ejercicios típicos de EDNL, los costes suelen ser no negativos.</p>
+</blockquote>
+<details>
+  <summary>Ver solución (C++)</summary>
+
+
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">typedef std::pair&lt;size_t, size_t&gt; Carretera;
+typedef matriz&lt;size_t&gt; CostesViajes;
+
+CostesViajes ZuelandiaRebeldes(const GrafoP&lt;size_t&gt;&amp; G,
+                              const vector&lt;size_t&gt;&amp; CiudadesRebeldes,
+                              const vector&lt;Carretera&gt;&amp; CarreterasRebeldes,
+                              size_t Capital) {
+    // Copia del grafo original
+    GrafoP&lt;size_t&gt; Gmod = G;
+
+    // Marcar ciudades rebeldes como inaccesibles
+    for (size_t ciudad : CiudadesRebeldes)
+        for (size_t i = 0; i &lt; G.numVert(); i++)
+            Gmod[i][ciudad] = GrafoP&lt;size_t&gt;::INFINITO;
+
+    // Marcar carreteras rebeldes como cortadas
+    for (const Carretera&amp; c : CarreterasRebeldes)
+        Gmod[c.first][c.second] = GrafoP&lt;size_t&gt;::INFINITO;
+
+    // Obtener caminos mínimos desde y hacia la capital
+    vector&lt;size_t&gt; VerticesD(G.numVert()), VerticesDI(G.numVert());
+    vector&lt;size_t&gt; D = Dijkstra(Gmod, Capital, VerticesD);
+    vector&lt;size_t&gt; DI = DijkstraInv(Gmod, Capital, VerticesDI);  // Dijkstra &quot;hacia atrás&quot;
+
+    // Construir matriz obligando a pasar por la capital
+    CostesViajes Resultado(G.numVert(), GrafoP&lt;size_t&gt;::INFINITO);
+    for (size_t i = 0; i &lt; G.numVert(); i++)
+        for (size_t j = 0; j &lt; G.numVert(); j++)
+            if (i != j &amp;&amp; D[i] != INFINITO &amp;&amp; DI[j] != INFINITO)
+                Resultado[i][j] = suma(D[i], DI[j]);  // i → Capital → j
+
+    return Resultado;
+}
+</code></pre></div>
+
+
+<p><strong>Complejidad:</strong> dos Dijkstra: depende de implementación; con matriz O(V^2) cada uno. <strong>Espacio:</strong> O(V^2) para la matriz resultado.</p>
+<p><strong>Errores típicos:</strong> (1) olvidar anular carreteras cortadas, (2) no distinguir “hacia capital” (grafo inverso) de “desde capital”, (3) sumar INFINITO sin control (usa <code>suma()</code> segura).</p>
+</details>
+
+<h3 id="72-puentes-grecoland">7.2 Puentes Grecoland</h3>
+<p><strong>Enunciado:</strong> Reconstruir archipiélago (islas Fobos/Deimos) con N1 y N2 ciudades respectivamente, comunicando todas las ciudades al mínimo coste. Considerar:
+- Coste proporcional a distancia euclídea de carreteras
+- Puentes siempre más caros que carreteras
+- Algunas ciudades son costeras (pueden tener puente)</p>
+<p><strong>Enfoque:</strong> Calcular todas las distancias (carreteras intra-isla + puentes inter-isla), luego aplicar <strong>Kruskal</strong> o <strong>Prim</strong> para obtener MST que conecte todas las ciudades.</p>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">// Paso 1: Calcular todas las aristas posibles (carreteras + puentes)
+// Paso 2: Aplicar Kruskal, pero garantizar que se incluyan puentes solo si
+//          son necesarios para conectar las dos islas
+</code></pre></div>
+<h3 id="73-toxicidad-zuelandia-líneas-aéreas-tumbuctú-repartidor-bebidas">7.3 Toxicidad Zuelandia / Líneas Aéreas Tumbuctú / Repartidor Bebidas</h3>
+<p><strong>Patrón común:</strong> Problemas de grafos con:
+- Ciudades = vértices
+- Conexiones = aristas ponderadas
+- Objetivo = camino mínimo o MST</p>
+<p><strong>Plantilla mental:</strong>
+1. Modelar: vértices, aristas, pesos
+2. ¿Objetivo? (alcanzabilidad → BFS/DFS, camino mínimo → Dijkstra/Floyd, MST → Kruskal/Prim)
+3. Elegir representación (matriz vs lista)
+4. Justificar complejidad en el examen</p>
+<h3 id="74-laberinto-3d-matriz-fauno-viajes-alergias">7.4 Laberinto 3D / Matriz Fauno / Viajes Alergias</h3>
+<p><strong>Tipos de problemas:</strong>
+- <strong>Laberinto:</strong> BFS para encontrar camino más corto (nº pasos)
+- <strong>Matriz:</strong> Floyd para all-pairs shortest paths
+- <strong>Viajes con restricciones:</strong> Dijkstra modificado o Floyd con condiciones adicionales</p>
+<hr />
+<h2 id="8-estrategia-para-el-examen">8. ESTRATEGIA PARA EL EXAMEN</h2>
+<h3 id="81-para-ejercicios-de-árboles">8.1 Para Ejercicios de Árboles</h3>
+<ol>
+<li><strong>Identificar el TAD:</strong> ¿Es Abin, Agen, Abb, o APO?</li>
+<li><strong>Elegir recorrido:</strong> ¿Qué información necesitas? (todos los nodos → pre/in/post, niveles → BFS)</li>
+<li><strong>Caso base:</strong> Siempre <code>if (n == NODO_NULO) return valor_neutro;</code></li>
+<li><strong>Combinar resultados:</strong> ¿Suma, cuenta, comparación?</li>
+<li><strong>Justificar complejidad:</strong> O(n) si visitas cada nodo una vez.</li>
+</ol>
+<p><strong>Ejemplo de plantilla:</strong></p>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">template &lt;typename T&gt;
+Resultado funcion(const Abin&lt;T&gt;&amp; A) {
+    if (A.arbolVacio()) return ResultadoVacio;
+    return funcion_rec(A.raiz(), A);
+}
+
+template &lt;typename T&gt;
+Resultado funcion_rec(typename Abin&lt;T&gt;::nodo n, const Abin&lt;T&gt;&amp; A) {
+    if (n == Abin&lt;T&gt;::NODO_NULO) return valor_neutro;
+    // Procesar nodo actual
+    auto izq = funcion_rec(A.hijoIzqdo(n), A);
+    auto der = funcion_rec(A.hijoDrcho(n), A);
+    return combinar(A.elemento(n), izq, der);
+}
+</code></pre></div>
+<h3 id="82-para-ejercicios-de-grafos">8.2 Para Ejercicios de Grafos</h3>
+<ol>
+<li><strong>Modelado:</strong> ¿Vértices? ¿Aristas? ¿Pesos? ¿Dirigido?</li>
+<li><strong>Objetivo:</strong>
+   - Distancia mínima desde origen → Dijkstra
+   - Todos los pares → Floyd
+   - Árbol generador → Kruskal o Prim
+   - Alcanzabilidad → BFS/DFS o Warshall</li>
+<li><strong>Estructuras auxiliares:</strong> <code>D[]</code> (distancias), <code>P[]</code> (predecesores), <code>S[]</code> (visitados)</li>
+<li><strong>Complejidad:</strong> O((V+E)logV) para Dijkstra con cola prioridad, O(V³) para Floyd</li>
+</ol>
+<p><strong>Ejemplo de plantilla para Dijkstra:</strong></p>
+<div class="codeBlock"><button class="copyBtn" type="button" data-copy>Copiar</button><pre><code class="language-cpp">// 1. Inicializar D[origen]=0, resto INFINITO; P[]=origen; S[]=false
+// 2. Repetir V veces: elegir w no en S con D mínimo; S[w]=true
+// 3. Para cada v no en S: si D[w]+G[w][v] &lt; D[v] → actualizar D[v] y P[v]
+// 4. Devolver D (y opcionalmente P para reconstruir camino)
+</code></pre></div>
+<h3 id="83-justificación-de-complejidad-importante-en-el-examen">8.3 Justificación de Complejidad (Importante en el Examen)</h3>
+<table>
+<thead>
+<tr>
+<th>Algoritmo</th>
+<th>Complejidad</th>
+<th>Justificación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recorrido árbol (cualquiera)</td>
+<td>O(n)</td>
+<td>Cada nodo se visita una vez</td>
+</tr>
+<tr>
+<td>ABB equilibrado (búsqueda)</td>
+<td>O(log n)</td>
+<td>Altura = O(log n)</td>
+</tr>
+<tr>
+<td>Dijkstra (con cola prioridad)</td>
+<td>O((V+E) log V)</td>
+<td>Extraer mínimo V veces, actualizar E veces</td>
+</tr>
+<tr>
+<td>Floyd</td>
+<td>O(V³)</td>
+<td>3 bucles anidados de tamaño V</td>
+</tr>
+<tr>
+<td>Kruskal</td>
+<td>O(E log E)</td>
+<td>Ordenar aristas + Union-Find casi O(1)</td>
+</tr>
+<tr>
+<td>Prim (con heap)</td>
+<td>O(E log V)</td>
+<td>Extraer mínimo V veces, actualizar E veces</td>
+</tr>
+<tr>
+<td>BFS/DFS</td>
+<td>O(V+E)</td>
+<td>Cada vértice y arista se visita una vez</td>
+</tr>
+</tbody>
+</table>
+<h3 id="84-checklist-antes-de-entregar">8.4 Checklist antes de Entregar</h3>
+<ul>
+<li>[ ] ¿Casos borde cubiertos? (árbol vacío, nodo nulo, grafo sin aristas)</li>
+<li>[ ] ¿Recursión termina? (caso base claro)</li>
+<li>[ ] ¿Usa correctamente el TAD? (NODO_NULO, operaciones públicas)</li>
+<li>[ ] ¿Complejidad justificada? (O-notation correcta)</li>
+<li>[ ] ¿Código compila? (incluye headers, tipos correctos)</li>
+<li>[ ] ¿Explicación clara? (comentarios en español explicando lógica)</li>
+</ul>
+<hr />
+<h2 id="recursos-adicionales">RECURSOS ADICIONALES</h2>
+<ul>
+<li><strong>Mindmap interactivo:</strong> <code>EDNL-mindmap.html</code></li>
+<li><strong>Flashcards:</strong> <code>EDNL-flashcards.html</code></li>
+<li><strong>Quiz:</strong> <code>EDNL-quiz.html</code></li>
+<li><strong>PDFs originales:</strong></li>
+<li>
+<p><code>TeoriaEDNL.pdf</code> (teoría completa)</p>
+</li>
+<li>
+<p><code>PracticasEDNL.pdf</code> (prácticas resueltas)</p>
+</li>
+<li><code>EjerciciosTipoExamen.pdf</code> (ejercicios modelo examen)</li>
+</ul>
+<hr />
+<p><strong>¡Buena suerte en el examen! 🎉</strong></p>
+    </main>
+
+    <script src="assets/app.js"></script>
+  </body>
+</html>
