@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="280" viewBox="0 0 900 280">
+  <rect width="900" height="280" fill="#0b1020"/>
+  <text x="20" y="36" fill="#e8ecf3" font-family="Arial" font-size="20">Heap binario en array (0-indexed)</text>
+  <text x="20" y="66" fill="#b9c0d3" font-family="Arial" font-size="14">hizq(i)=2i+1 · hder(i)=2i+2 · padre(i)=(i-1)/2</text>
+
+  <rect x="20" y="110" width="860" height="60" rx="12" fill="#121a33" stroke="#e8ecf3"/>
+  <text x="40" y="145" fill="#e8ecf3" font-family="Arial" font-size="16">[ 0 ] [ 1 ] [ 2 ] [ 3 ] [ 4 ] [ 5 ] [ 6 ]</text>
+  <text x="40" y="170" fill="#b9c0d3" font-family="Arial" font-size="12">índices</text>
+
+  <text x="20" y="220" fill="#e8ecf3" font-family="Arial" font-size="14">Usos:</text>
+  <text x="80" y="220" fill="#b9c0d3" font-family="Arial" font-size="14">flotar (sift-up) tras insertar · hundir (sift-down) tras extraer raíz</text>
+</svg>

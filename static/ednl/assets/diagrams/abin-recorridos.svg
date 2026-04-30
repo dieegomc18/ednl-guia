@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="260" viewBox="0 0 900 260">
+  <rect width="900" height="260" fill="#0b1020"/>
+  <text x="20" y="36" fill="#e8ecf3" font-family="Arial" font-size="20">Árbol binario — recorridos</text>
+  <text x="20" y="70" fill="#b9c0d3" font-family="Arial" font-size="14">Preorden: Nodo → Izq → Der · Inorden: Izq → Nodo → Der · Postorden: Izq → Der → Nodo</text>
+
+  <line x1="220" y1="120" x2="150" y2="190" stroke="#7c7cff" stroke-width="3"/>
+  <line x1="220" y1="120" x2="290" y2="190" stroke="#7c7cff" stroke-width="3"/>
+  <circle cx="220" cy="120" r="22" fill="#121a33" stroke="#e8ecf3" stroke-width="2"/>
+  <circle cx="150" cy="190" r="22" fill="#121a33" stroke="#e8ecf3" stroke-width="2"/>
+  <circle cx="290" cy="190" r="22" fill="#121a33" stroke="#e8ecf3" stroke-width="2"/>
+  <text x="214" y="127" fill="#e8ecf3" font-family="Arial" font-size="16">A</text>
+  <text x="144" y="197" fill="#e8ecf3" font-family="Arial" font-size="16">B</text>
+  <text x="284" y="197" fill="#e8ecf3" font-family="Arial" font-size="16">C</text>
+
+  <text x="420" y="120" fill="#e8ecf3" font-family="Arial" font-size="16">Ejemplo:</text>
+  <text x="420" y="145" fill="#b9c0d3" font-family="Arial" font-size="14">Preorden: A B C</text>
+  <text x="420" y="168" fill="#b9c0d3" font-family="Arial" font-size="14">Inorden: B A C</text>
+  <text x="420" y="191" fill="#b9c0d3" font-family="Arial" font-size="14">Postorden: B C A</text>
+</svg>

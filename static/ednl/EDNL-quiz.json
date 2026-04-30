@@ -1,0 +1,200 @@
+{
+  "title": "EDNL Quiz (Árboles, Hash, Grafos)",
+  "questions": [
+    {
+      "question": "En un ABB, ¿qué garantiza el invariante de orden?",
+      "options": [
+        "Que todos los nodos tienen exactamente 2 hijos",
+        "Que en cada nodo, las claves del subárbol izquierdo son menores y las del derecho mayores",
+        "Que el árbol está siempre equilibrado",
+        "Que el recorrido en preorden devuelve las claves ordenadas"
+      ],
+      "correctIndex": 1,
+      "hint": "Piensa en la relación entre subárbol izquierdo/derecho y la clave del nodo.",
+      "correctExplanation": "El ABB mantiene que (izq) < nodo < (der), lo que habilita búsqueda guiada.",
+      "wrongExplanation": "Un ABB no implica equilibrio ni 2 hijos por nodo, y las claves ordenadas salen en inorden, no en preorden."
+    },
+    {
+      "question": "¿Cuál es el caso base típico en recursión sobre un Abin?",
+      "options": [
+        "Cuando el nodo es la raíz",
+        "Cuando el nodo es una hoja",
+        "Cuando el nodo es NODO_NULO",
+        "Cuando el árbol tiene altura 0"
+      ],
+      "correctIndex": 2,
+      "hint": "El caso base debe evitar acceder a hijos/elemento.",
+      "correctExplanation": "En TADs de árbol, el caso base habitual es nodo == NODO_NULO.",
+      "wrongExplanation": "Hoja o raíz pueden ser casos especiales, pero el caso base universal es NODO_NULO."
+    },
+    {
+      "question": "¿Qué recorrido de un ABB devuelve las claves en orden ascendente?",
+      "options": [
+        "Preorden",
+        "Inorden",
+        "Postorden",
+        "Por niveles (BFS)"
+      ],
+      "correctIndex": 1,
+      "hint": "Visita: izquierda → nodo → derecha.",
+      "correctExplanation": "En un ABB, el inorden produce las claves ordenadas.",
+      "wrongExplanation": "Preorden/postorden/BFS no garantizan ordenación en un ABB."
+    },
+    {
+      "question": "¿Cuál es la condición clave para que Dijkstra sea correcto?",
+      "options": [
+        "El grafo debe ser no dirigido",
+        "El grafo debe ser conexo",
+        "No puede haber pesos negativos",
+        "Debe usarse matriz de adyacencia"
+      ],
+      "correctIndex": 2,
+      "hint": "Piensa en qué rompe la 'greedy choice' de Dijkstra.",
+      "correctExplanation": "Dijkstra asume pesos no negativos; con negativos puede fijar distancias erróneas.",
+      "wrongExplanation": "Puede funcionar en dirigido/no dirigido y con distintas representaciones; el requisito crítico es no-negatividad."
+    },
+    {
+      "question": "¿Qué algoritmo resuelve caminos mínimos entre todos los pares con coste O(V^3)?",
+      "options": [
+        "BFS",
+        "Floyd",
+        "Prim",
+        "Kruskal"
+      ],
+      "correctIndex": 1,
+      "hint": "Es un DP sobre un vértice intermedio k.",
+      "correctExplanation": "Floyd calcula all-pairs shortest paths en O(V^3).",
+      "wrongExplanation": "BFS es para no ponderados; Prim/Kruskal son MST."
+    },
+    {
+      "question": "¿Qué calcula Warshall?",
+      "options": [
+        "Un MST",
+        "La clausura transitiva (alcanzabilidad)",
+        "El recorrido BFS",
+        "El diámetro del grafo"
+      ],
+      "correctIndex": 1,
+      "hint": "Versión booleana de un DP tipo Floyd.",
+      "correctExplanation": "Warshall obtiene qué vértices alcanzan a cuáles (reachability).",
+      "wrongExplanation": "No construye MST ni BFS; su salida típica es una matriz booleana de alcanzabilidad."
+    },
+    {
+      "question": "En un heap mínimo (APO min), ¿qué propiedad se cumple?",
+      "options": [
+        "La raíz es el máximo",
+        "Cada nodo es ≤ que sus hijos",
+        "El árbol está ordenado como un ABB",
+        "Todos los niveles están completos excepto el último, que debe estar vacío"
+      ],
+      "correctIndex": 1,
+      "hint": "Relación padre-hijos.",
+      "correctExplanation": "En heap min, el padre es ≤ que sus hijos; por eso el mínimo está en la raíz.",
+      "wrongExplanation": "Heap no es un ABB; y la condición de completitud es 'casi completo', no 'último vacío'."
+    },
+    {
+      "question": "¿Qué operación suele requerir 'hundir' (sift-down) en un heap?",
+      "options": [
+        "Insertar al final",
+        "Extraer el mínimo/máximo",
+        "Consultar la raíz",
+        "Recorrer por inorden"
+      ],
+      "correctIndex": 1,
+      "hint": "Tras quitar la raíz, algo sube a la raíz.",
+      "correctExplanation": "Al extraer la raíz, el último elemento sube y hay que hundirlo para restaurar el heap.",
+      "wrongExplanation": "Insertar suele usar flotar; consultar raíz es O(1) sin reordenar."
+    },
+    {
+      "question": "En hash, ¿qué es el factor de carga α?",
+      "options": [
+        "m/n",
+        "n/m",
+        "n·m",
+        "m−n"
+      ],
+      "correctIndex": 1,
+      "hint": "Elementos dividido por tamaño de tabla.",
+      "correctExplanation": "α = n/m; al crecer α empeoran colisiones y rendimiento.",
+      "wrongExplanation": "La definición estándar es n/m, no su inversa."
+    },
+    {
+      "question": "¿Qué estructura usa Kruskal para evitar ciclos eficientemente?",
+      "options": [
+        "Pila",
+        "Cola",
+        "Union-Find (TAD Partición)",
+        "Tabla hash"
+      ],
+      "correctIndex": 2,
+      "hint": "find/union.",
+      "correctExplanation": "Kruskal usa Union-Find para comprobar si dos vértices ya están conectados.",
+      "wrongExplanation": "Pila/cola no resuelven conectividad dinámica; hash no sustituye a union-find."
+    },
+    {
+      "question": "¿Qué representación es más eficiente en memoria para grafos dispersos?",
+      "options": [
+        "Matriz de adyacencia",
+        "Lista de adyacencia",
+        "Matriz de costes completa siempre",
+        "Cualquier representación ocupa lo mismo"
+      ],
+      "correctIndex": 1,
+      "hint": "Compara O(V^2) vs O(V+E).",
+      "correctExplanation": "En grafos dispersos, lista de adyacencia usa O(V+E) frente a O(V^2).",
+      "wrongExplanation": "La matriz puede desperdiciar mucho espacio cuando E ≪ V^2."
+    },
+    {
+      "question": "BFS en un grafo no ponderado sirve principalmente para:",
+      "options": [
+        "Obtener distancias mínimas en número de aristas",
+        "Encontrar MST",
+        "Ordenar topológicamente cualquier grafo",
+        "Calcular all-pairs shortest paths"
+      ],
+      "correctIndex": 0,
+      "hint": "Piensa en niveles.",
+      "correctExplanation": "BFS descubre vértices por capas, dando distancias mínimas en nº de aristas.",
+      "wrongExplanation": "MST y all-pairs requieren otros algoritmos; topológico solo en DAG con técnicas específicas."
+    },
+    {
+      "question": "¿Qué chequeo es esencial para 'es AVL'?",
+      "options": [
+        "Que el recorrido por niveles esté ordenado",
+        "Que para todo nodo |h(izq)-h(der)| ≤ 1",
+        "Que todas las hojas estén al mismo nivel",
+        "Que la raíz sea el mínimo"
+      ],
+      "correctIndex": 1,
+      "hint": "Diferencia de alturas.",
+      "correctExplanation": "AVL exige balanceo local (diferencia de alturas) en todos los nodos.",
+      "wrongExplanation": "No exige hojas al mismo nivel (eso sería perfecto/complete), ni raíz mínima."
+    },
+    {
+      "question": "¿Cuál es una forma eficiente de comprobar AVL en una sola pasada?",
+      "options": [
+        "Ordenar todas las claves",
+        "Devolver (esAVL, altura) desde cada subárbol",
+        "Solo mirar la raíz",
+        "Ejecutar BFS dos veces"
+      ],
+      "correctIndex": 1,
+      "hint": "Combina verificación + cálculo de altura.",
+      "correctExplanation": "Si cada llamada devuelve si es AVL y su altura, se consigue O(n) en una pasada.",
+      "wrongExplanation": "Ordenar/solo mirar raíz/BFS extra no garantizan comprobar condición en todos los nodos."
+    },
+    {
+      "question": "¿Qué produce Prim?",
+      "options": [
+        "Un árbol generador mínimo",
+        "Distancias mínimas desde un origen en cualquier grafo",
+        "La clausura transitiva",
+        "Un orden topológico"
+      ],
+      "correctIndex": 0,
+      "hint": "Es un algoritmo voraz para MST.",
+      "correctExplanation": "Prim construye un MST (en grafo no dirigido y conectado).",
+      "wrongExplanation": "Dijkstra es el de distancias desde origen (con no negativos); Warshall es clausura transitiva."
+    }
+  ]
+}

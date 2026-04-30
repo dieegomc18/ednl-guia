@@ -1,0 +1,185 @@
+{
+  "title": "EDNL Flashcards (Árboles, Hash, Grafos)",
+  "flashcards": [
+    {
+      "question": "¿Qué es un árbol (estructura de datos)?",
+      "answer": "• Estructura jerárquica de nodos\n• Con una raíz y relaciones padre→hijo\n• Conecta nodos sin ciclos (en el sentido de estructura de árbol)"
+    },
+    {
+      "question": "Define: grado de un nodo y grado de un árbol",
+      "answer": "• Grado(nodo): nº de hijos del nodo\n• Grado(árbol): máximo grado de sus nodos"
+    },
+    {
+      "question": "Define: hoja, profundidad, altura",
+      "answer": "• Hoja: nodo sin hijos\n• Profundidad(nodo): longitud del camino raíz→nodo\n• Altura(nodo): longitud del camino más largo nodo→hoja (altura del árbol: altura de la raíz)"
+    },
+    {
+      "question": "¿Qué es el TAD Abin (árbol binario)?",
+      "answer": "• Un TAD para árboles donde cada nodo tiene 0..2 hijos\n• Operaciones típicas: raíz, hijoIzqdo/hijoDrcho, padre, insertar/eliminar, elemento(nodo)"
+    },
+    {
+      "question": "Caso base típico en recursión sobre Abin/Agen",
+      "answer": "• Si nodo == NODO_NULO → devolver valor neutro (0, false, etc.)\n• Evita acceder a hijos/elemento de NODO_NULO"
+    },
+    {
+      "question": "¿Cómo se calcula el número de nodos de un árbol binario?",
+      "answer": "• Recursión estructural\n• n(nodo)=1+n(izq)+n(der)\n• Caso base: NODO_NULO → 0"
+    },
+    {
+      "question": "Recorridos DFS en árbol binario",
+      "answer": "• Preorden: nodo, izq, der\n• Inorden: izq, nodo, der\n• Postorden: izq, der, nodo"
+    },
+    {
+      "question": "¿Cuándo usar recorrido por niveles (BFS) en árboles?",
+      "answer": "• Cuando importa la distancia a la raíz o niveles\n• Se implementa con una cola\n• Útil para comprobar propiedades por nivel"
+    },
+    {
+      "question": "Representación enlazada de Abin: idea",
+      "answer": "• Cada nodo almacena punteros/referencias a hijo izq, hijo der y (a veces) padre\n• Ventaja: flexible\n• Inconveniente: overhead de punteros"
+    },
+    {
+      "question": "Representación vectorial de Abin: idea",
+      "answer": "• Índices en array (p.ej. heap): izq=2i, der=2i+1 (si se usa 1-index)\n• Ventaja: caché y simple para árboles completos\n• Inconveniente: huecos si el árbol no es completo"
+    },
+    {
+      "question": "¿Qué es un árbol general (TAD Agen)?",
+      "answer": "• Árbol donde cada nodo puede tener un número arbitrario de hijos\n• Operaciones: hijoIzqdo (primer hijo), hermanoDrcho, padre, etc. (según implementación)"
+    },
+    {
+      "question": "Truco típico: representar árbol general como binario hijo-hermano",
+      "answer": "• Primer hijo → hijo izquierdo\n• Siguiente hermano → hijo derecho\n• Permite reutilizar patrones de recorrido binario"
+    },
+    {
+      "question": "¿Qué define a un ABB (árbol binario de búsqueda)?",
+      "answer": "• Invariante: claves(izq) < clave(nodo) < claves(der)\n• Permite búsqueda/inserción/eliminación eficientes en promedio"
+    },
+    {
+      "question": "Complejidad típica de operaciones en ABB",
+      "answer": "• O(h) donde h=altura\n• Mejor caso (equilibrado): O(log n)\n• Peor caso (degenerado): O(n)"
+    },
+    {
+      "question": "Ínfimo y supremo en ABB: concepto",
+      "answer": "• Ínfimo(x): mayor clave ≤ x\n• Supremo(x): menor clave ≥ x\n• Se calculan recorriendo el ABB guardando mejor candidato"
+    },
+    {
+      "question": "¿Qué es un AVL?",
+      "answer": "• ABB autoequilibrado\n• Para cada nodo: |altura(izq)-altura(der)| ≤ 1\n• Usa rotaciones tras inserción/eliminación"
+    },
+    {
+      "question": "Rotaciones AVL: para qué sirven",
+      "answer": "• Restauran el equilibrio manteniendo el orden del ABB\n• Tipos: simple (LL, RR) y doble (LR, RL)"
+    },
+    {
+      "question": "¿Qué es un ARN (árbol rojo-negro)?",
+      "answer": "• ABB equilibrado mediante coloreado rojo/negro\n• Garantiza altura O(log n) con reglas de color\n• Reequilibrado con recoloreos y rotaciones"
+    },
+    {
+      "question": "AVL vs ARN: comparación rápida",
+      "answer": "• AVL: más estrictamente equilibrado → búsquedas algo mejores\n• ARN: menos rotaciones en actualizaciones → inserciones/eliminaciones a menudo más baratas"
+    },
+    {
+      "question": "¿Qué es un APO (árbol parcialmente ordenado / heap)?",
+      "answer": "• Estructura que mantiene mínimo (heap min) o máximo (heap max) en la raíz\n• Propiedad de heap: cada nodo respeta orden con sus hijos\n• Normalmente se implementa en vector"
+    },
+    {
+      "question": "Operaciones típicas en heap (APO)",
+      "answer": "• Insertar: colocar al final + flotar\n• Extraer min/max: sacar raíz, subir último a raíz + hundir\n• Consultar min/max: O(1)"
+    },
+    {
+      "question": "Flotar vs hundir (heap)",
+      "answer": "• Flotar (sift-up): corrige hacia arriba tras inserción\n• Hundir (sift-down): corrige hacia abajo tras extraer raíz"
+    },
+    {
+      "question": "¿Qué es una tabla hash?",
+      "answer": "• Estructura para asociar clave→posición mediante una función hash\n• Objetivo: operaciones esperadas O(1)\n• Problema central: colisiones"
+    },
+    {
+      "question": "Factor de carga (α) en hash",
+      "answer": "• α = n / m (elementos / tamaño de la tabla)\n• A mayor α, más colisiones y peor rendimiento\n• Se controla con redimensionamiento"
+    },
+    {
+      "question": "Hashing cerrado: idea",
+      "answer": "• Todos los elementos se guardan en el array\n• Colisiones se resuelven con sondeo (p.ej. lineal, cuadrático, doble hashing)\n• Requiere gestionar celdas borradas (tumbas)"
+    },
+    {
+      "question": "Hashing abierto: idea",
+      "answer": "• Cada posición apunta a una lista (encadenamiento)\n• Colisiones se almacenan en la lista\n• Rendimiento depende de α y calidad del hash"
+    },
+    {
+      "question": "Rehashing: cuándo y por qué",
+      "answer": "• Cuando α supera umbral\n• Se crea tabla mayor y se reinsertan claves\n• Mantiene coste esperado O(1) amortizado"
+    },
+    {
+      "question": "Definición de grafo",
+      "answer": "• Conjunto de vértices V y aristas E\n• Puede ser dirigido/no dirigido y ponderado/no ponderado"
+    },
+    {
+      "question": "Matriz vs lista de adyacencia",
+      "answer": "• Matriz: O(|V|^2) memoria, comprobar arista O(1)\n• Lista: O(|V|+|E|) memoria, iterar vecinos eficiente\n• Para grafos dispersos suele preferirse lista"
+    },
+    {
+      "question": "BFS (anchura): qué calcula",
+      "answer": "• Distancias mínimas en nº de aristas (grafos no ponderados)\n• Produce un árbol de expansión por niveles\n• Usa cola"
+    },
+    {
+      "question": "DFS (profundidad): para qué se usa",
+      "answer": "• Explorar componentes\n• Detectar ciclos (según variante)\n• Orden topológico en DAG (con postorden)\n• Usa pila/recursión"
+    },
+    {
+      "question": "Dijkstra: requisito clave",
+      "answer": "• Solo es correcto con pesos no negativos\n• Usa selección del vértice con menor distancia provisional\n• Con cola de prioridad: O((V+E) log V)"
+    },
+    {
+      "question": "Floyd: qué resuelve y coste",
+      "answer": "• Caminos mínimos entre todos los pares\n• Programación dinámica sobre k intermedio\n• Coste: O(V^3) tiempo, O(V^2) memoria"
+    },
+    {
+      "question": "Warshall: qué calcula",
+      "answer": "• Clausura transitiva (alcanzabilidad)\n• Similar a Floyd pero con booleanos\n• O(V^3)"
+    },
+    {
+      "question": "Árbol generador mínimo (MST): definición",
+      "answer": "• Subconjunto de aristas que conecta todos los vértices\n• Sin ciclos\n• Peso total mínimo (en grafo no dirigido y conectado)"
+    },
+    {
+      "question": "Kruskal: idea",
+      "answer": "• Ordena aristas por peso creciente\n• Añade si no crea ciclo\n• Usa Union-Find (TAD Partición) para detectar ciclos"
+    },
+    {
+      "question": "Prim: idea",
+      "answer": "• Crece un árbol desde un vértice\n• Añade la arista mínima que conecta árbol con un nuevo vértice\n• Con heap: O(E log V)"
+    },
+    {
+      "question": "Union-Find (Partición): operaciones",
+      "answer": "• make-set, find, union\n• Con compresión de caminos + unión por rango: casi O(1) amortizado"
+    },
+    {
+      "question": "Plantilla mental para problemas de grafos en examen",
+      "answer": "1) Modela: vértices, aristas, pesos\n2) Elige objetivo: alcanzabilidad, BFS, DFS, caminos mínimos, MST\n3) Elige representación\n4) Da complejidad"
+    },
+    {
+      "question": "Plantilla mental para problemas de árboles en examen",
+      "answer": "1) Identifica si es binario, general, ABB, heap\n2) Elige recorrido/recursión adecuada\n3) Define caso base + combinación\n4) Justifica complejidad (O(n) típico)"
+    },
+    {
+      "question": "¿Qué ejercicio típico pide 'reflejar' un árbol?",
+      "answer": "• Intercambiar sistemáticamente subárbol izquierdo y derecho\n• Se resuelve con recursión: reflejar(izq) ↔ reflejar(der)"
+    },
+    {
+      "question": "¿Qué suele pedir 'comprobar si es AVL'?",
+      "answer": "• Calcular alturas y verificar |h(izq)-h(der)|≤1 en todos los nodos\n• Mejor: devolver (esAVL, altura) en una sola pasada"
+    },
+    {
+      "question": "Error típico en Dijkstra",
+      "answer": "• Usarlo con aristas de peso negativo\n• Solución: Bellman-Ford (si se viera) o re-modelar el problema"
+    },
+    {
+      "question": "¿Cuándo prefieres Floyd frente a Dijkstra repetido?",
+      "answer": "• Si necesitas todos los pares y V no es grande\n• Floyd es simple (O(V^3))\n• Dijkstra repetido: O(V·(E log V))"
+    },
+    {
+      "question": "¿Qué significa justificar complejidad en examen?",
+      "answer": "• Indicar nº de veces que se visita cada nodo/arista\n• Árboles: O(n) si visitas cada nodo una vez\n• Grafos: O(V+E) en BFS/DFS con listas"
+    }
+  ]
+}
