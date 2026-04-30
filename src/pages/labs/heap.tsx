@@ -1,12 +1,14 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 
-export default function HeapLabPage(): JSX.Element {
+import {HeapPlayground} from '../../components/labs/HeapPlayground';
+
+export default function HeapLabPage(): React.JSX.Element {
   return (
     <Layout title="Heap Lab" description="Heap interactivo (MVP)">
       <main className="container margin-vert--lg">
-        <h1>Heap Lab</h1>
-        <p>En construcción (MVP). Próximo: inserción + flotar / extracción + hundir.</p>
+        <h1>Heap Playground</h1>
+        <HeapPlayground />
       </main>
     </Layout>
   );
