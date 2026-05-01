@@ -1,0 +1,10 @@
+---
+title: "Componentes de un árbol"
+---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+> Fuente: <a href={useBaseUrl('/ednl/TeoriaEDNL.pdf')} data-noBrokenLinkCheck>TeoriaEDNL.pdf</a>
+
+1.3. Componentes de un ´ arbol Los ´ arboles se componen de nodos raiz, hojas, sub´ arboles, ramas, etc´ etera. Ra´ ız: Es el ´ unico nodo del ´ arbol que no tiene ancestro. Hoja: Es aquel nodo que no tiene ning´ un descendiente propio y por ende no tiene descen- dientes. Hoja ̸ = ´ arbol nulo . Sub´ arbol: Conjunto formado por un nodo cualquiera y sus descendientes. Rama: Es el camino que termina en un nodo que es hoja. Figura 1.6: Componentes de un ´ arbol En el nodo F, tenemos dos puntos de vista: Respecto al s´ ubarbol, es ra´ ız sin descendientes propios (hoja). Respecto al ´ arbol, es una hoja. 7
+
+Altura y Profundidad: La Altura es la longitud de la rama m´ as larga, la altura del ´ arbol se corresponde con la altura del nodo ra´ ız. La Profundidad es la longitud desde el ´ unico camino desde la ra´ ız hasta ese nodo. Tambi´ en se denomina nivel de nodo . Figura 1.7: Ejemplo de altura y profundidad En rojo vemos la altura y en verde la profundidad. C´ alculo de la altura de un ´ arbol binario: return 1+std::max(alturaAbin_rec(A.hijoIzqdo(n),A), alturaAbin_rec(A.hijoDrcho(n),A)); , → C´ odigo del c´ alculo de la profunddad de un ´ arbol binario: return 1+profundidad_rec(A.padre(n),A); Desequilibrio: El desequilibrio de un ´ arbol es la m´ axima diferencia de altura de los sub´ arbo- les izquierdos y derecho de uno o m´ as nodos, esto puede repercutir significativamente en la eficiencia de algunas operaciones, en la Figura 1.7 podemos ver un ´ arbol desequilibrado. C´ odigo del desequilibrio de un ´ arbol binario: return std::max(std::abs(A.alturaAbin_rec(A.hijoIzqdo(n), A) - A.alturaAbin_rec(A.hijoDrcho(n) A)), std::max(desequilibrio_rec(A.hijoIzqdo(n), A), desequilibrio_rec(A.hijoDrcho(n), A))); , → , → , → 8

@@ -1,0 +1,8 @@
+---
+title: "Introducción a los grafos"
+---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+> Fuente: <a href={useBaseUrl('/ednl/TeoriaEDNL.pdf')} data-noBrokenLinkCheck>TeoriaEDNL.pdf</a>
+
+8. Introducci´ on a los grafos En este tema vamos a ver los diferentes tipos de grafos que existen para resolver problemas. Veremos sobre los grafos ( Dijkstra, Floyd, Warshall, Kruskal, Prim , etc), donde cada uno tiene un proposito diferente, es decir, resuelven diferentes problemas y es importante saber cual resuelve cual a la hora de trabajar con ellos. Para ello, primero vamos a ver que es un grafo y de que se compone. 8.1. Definici´ on de grafo Un grafo ‘G = (V,A)’, consta de un conjunto de v´ ertices o nodos (V) y de un conjunto de aristas o arcos (A) que define una relaci´ on banaria en V. Por tanto, podemos definir como que una arista es un par de v´ ertices cualesquiera ( v, w ) ∈ A . Si cada arista ( v, w ) ∈ A es un par ordenado, es decir si, ( v, w ) y w, v no son equivalentes, entonces el grado es dirigido y la arista resultante del par ( v, w ) se representa con una flecha indicando la direcci´ on de v a w ( Figura 8.1: Grafo dirigido ). Figura 8.1: Grafo dirigido NOTA: Decimos que el v´ ertice v es incidente sobre el v´ ertice w y que w es adyacente a v . Por otro lado, si ( v, w ) y w, v son equivalentes o sim´ etrico , el grafo ser´ a no dirigido , y por tanto, la arista se representa como un segmento entre v y w , v´ ease en la ( Figura: 8.2 Grafo no dirigido ). Figura 8.2: Grafo no dirigido 49

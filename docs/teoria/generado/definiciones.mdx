@@ -1,0 +1,8 @@
+---
+title: "Definiciones "
+---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+> Fuente: <a href={useBaseUrl('/ednl/TeoriaEDNL.pdf')} data-noBrokenLinkCheck>TeoriaEDNL.pdf</a>
+
+Cada arista del grafo puede tener asociada un valor asociado, llamado peso , que indica el coste (tiempo, distancia, etc) de ir desde el v´ ertice v al v´ ertice w . Un grafo el cual tenga un peso asociado a cada arista se le denomina grafo ponderado . Figura 8.3: Grafo ponderado 8.2. Definiciones Vamos a ver varias definiciones que debemos de saber cuando vayamos a trabajar con grafos. Grado: El grado en un grafo no dirigido es el n´ umero de arcos . Si el grafo es dirigido se obtiene a partir de la diferencia entre grado de entrada y grado de salida , es decir, arcos incidentes − arcos adyacentes . Camino: Es una suceci´ on de v´ ertices de un grafo n 1 , n 2 , ..., n k , tal que ( n i , n i +1 ) es una arista para 1 ≤ i &lt; k . La longitud del camino es el n´ umero de arcos que comprende, es decir k − 1, si el grafo no es ponderado. Si el grafo es ponderado, la longitud ser´ a la suma de todos los pesos de las arista que lo componen. Camino simple: Es el camino cuyos arcos son todos distintos, adem´ as si todos los v´ ertices son distintos → camino elemental . Ciclo: Es el camino en el que coincide los v´ ertices inicio y final. Si el camino es simple → ciclo simple y si el camino es elemental → ciclo elemental . Grafo Conexo: Es un grafo no dirigido en el que al menos hay un camino entre cualquier par de v´ ertice. Figura 8.4: Diferencia entre grafo conexo y no conexo 50

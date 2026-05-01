@@ -1,0 +1,8 @@
+---
+title: "Árboles Binario de Búsqueda"
+---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+> Fuente: <a href={useBaseUrl('/ednl/TeoriaEDNL.pdf')} data-noBrokenLinkCheck>TeoriaEDNL.pdf</a>
+
+4. ´ Arboles Binario de B´ usqueda Un ´ Arbol Binario de B´ usqueda o ABB es aquel que los nodos del sub´ arbol izquierdo contiene elementos menores a su padre y el sub´ arbol derecho contiene elementos mayores a su padre ( Figura 4.1: Representaci´ on de un ´ arbol binario de b´ usqueda ). Es importante saber que no pueden haber valores repetidos en este tipo de ´ arboles, debido a que si no, no podremos comparar si esos elementos son menores o mayores (estrictos). Figura 4.1: Representaci´ on de un ´ arbol binario de b´ usqueda Vemos que para un elemento ‘e’ (18), el sub´ arbol izquierdo va a contener elementos menores a ´ el (9,3,6) y el derecho elementos mayores (25,21,28). Ahora, al saber que vamos a tener elementos ‘ordenados’ por su valor a la hora de buscar un elemento en el ´ arbol pasamos de un coste O ( n ) a un coste O ( log 2 n ) debido a que al buscar un elemento (comparando si es mayor o menor que el padre) nos quitamos todo el sub´ arbol que no cumple esa condici´ on, es decir, o vamos por el hijo izquierdo o por el hijo derecho de ese padre, por los dos no. 4.1. Ejemplo de b´ usqueda de un elemento en un ABB Queremos buscar el nodo cuyo elemento es ‘51’, para ello hacemos: 51 &gt; 30 → Hijo derecho de 30 → sub´ arbol derecho 51 &gt; 45 → Hijo derecho de 45 → sub´ arbol derecho 51 &lt; 57 → Hijo izquierdo de 57 → sub´ arbol izquierdo 51 = 51 → hemos encontrado el nodo cuyo elemento es 51. 22
