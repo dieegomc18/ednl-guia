@@ -1,0 +1,46 @@
+---
+title: Abin vs Agen (y representación hijo-hermano)
+---
+
+# Abin vs Agen
+
+## 1) Idea clave
+
+- **Abin** (árbol binario): cada nodo tiene como mucho **2 hijos** (izq/der).
+- **Agen** (árbol general): un nodo puede tener **k hijos**.
+- En examen, muchos enunciados de Agen se resuelven más fácil si entiendes la representación **hijo-izquierdo / hermano-derecho** (convierte un general en binario).
+
+## 2) Receta de examen
+
+1. Identifica si el enunciado es **binario** (Abin) o **general** (Agen).
+2. Si es Agen y te piden recorridos/propiedades, pregúntate: ¿me conviene “pensarlo” como **hijo-hermano**?
+3. En hijo-hermano:
+   - `hijoIzq(n)` = primer hijo de `n`
+   - `hermanoDer(n)` = siguiente hermano
+
+## 3) Errores típicos
+
+- Confundir “**hermano**” con “**hijo**” en la representación.
+- Olvidar que el recorrido en hijo-hermano no es “magia”: sigue siendo un **binario**, pero la semántica cambia.
+
+## 4) Ejemplo guiado
+
+Ejemplo mental (Agen):
+
+- A tiene hijos B, C, D
+- B tiene hijos E, F
+
+En hijo-hermano:
+
+- `A.izq = B`
+- `B.der = C`, `C.der = D`
+- `B.izq = E`, `E.der = F`
+
+## 5) Complejidad
+
+- Convertir mentalmente / recorrer hijo-hermano: **O(n)**
+
+## 6) Ver más en guía completa
+
+- Ve a: [/guia-completa](/guia-completa)
+- Busca: `### 1.3 Árbol General (TAD Agen)` y `![Agen hijo-hermano]`
