@@ -6,4 +6,38 @@ import {HashStepper} from '@site/src/components/steppers/HashStepper';
 
 # Colisiones en tablas hash
 
+## 1) Idea clave
+
+Una tabla hash es rápida si el **factor de carga** es razonable. El problema inevitable son las **colisiones**.
+
+Dos estrategias típicas:
+
+- **Encadenamiento:** cada posición guarda una lista de elementos
+- **Direccionamiento abierto:** buscas otra posición libre (sondeo)
+
+## 2) Receta de examen
+
+1. Define `m` (tamaño de la tabla) y función hash `h`.
+2. Inserción:
+   - encadenamiento: insertas en la cadena de `h(x)`
+   - abierto: sondeo hasta encontrar hueco
+3. Búsqueda: repites el mismo criterio (cadena o sondeo).
+
+## 3) Errores típicos
+
+- No tratar borrados en direccionamiento abierto (típicamente necesitas “tombstones”).
+- Elegir `m` mal (depende del enunciado; muchas veces conviene primo).
+
+## 4) Ejemplo guiado (Stepper)
+
 <HashStepper />
+
+## 5) Complejidad
+
+- Esperada: **O(1)**
+- Peor caso: **O(n)**
+
+## 6) Ver más en guía completa
+
+- Ve a: [/guia-completa](/guia-completa)
+- Busca: `## 4. TABLAS HASH: TEORÍA` y `### 4.2 Resolución de Colisiones`
