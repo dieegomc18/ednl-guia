@@ -13,6 +13,8 @@ const mustExist = [
   join(buildDir, 'index.html'),
   join(buildDir, 'recursos.html'),
   join(buildDir, 'guia-completa.html'),
+  join(buildDir, 'teoria.html'),
+  join(buildDir, 'practicas.html'),
   join(buildDir, 'labs', 'heap.html'),
   join(buildDir, 'labs', 'dijkstra.html'),
   join(buildDir, 'ednl', 'TeoriaEDNL.pdf'),

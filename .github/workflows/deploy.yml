@@ -34,6 +34,9 @@ jobs:
       - name: Check guia-completa is up-to-date
         run: npm run check:guia
 
+      - name: Check PDF docs are up-to-date
+        run: npm run check:pdf-docs
+
       - name: Build site
         run: npm run build
 
