@@ -29,11 +29,68 @@ Cuando insertas/eliminás, corriges el desbalance con **rotaciones**.
 - **LR** → izquierda en hijo + derecha
 - **RL** → derecha en hijo + izquierda
 
+### Plantilla estrella: `esAVL` en una pasada (devuelve altura)
+
+Cuando el enunciado dice algo como:
+
+> “Comprueba si un árbol es AVL”
+
+La forma **segura** (y rápida) es recorrer una vez devolviendo:
+
+- si el subárbol cumple
+- la altura del subárbol
+
+<details>
+  <summary>Código (modo examen): comprobar balance + altura en una pasada</summary>
+
+```cpp
+struct InfoAVL {
+  bool ok;
+  int altura;
+};
+
+InfoAVL esAVLRec(const Abin<int>& A, Abin<int>::nodo n) {
+  if (n == Abin<int>::NODO_NULO) return {true, -1}; // convención típica
+
+  InfoAVL izq = esAVLRec(A, A.hijoIzqdo(n));
+  if (!izq.ok) return {false, 0};
+  InfoAVL der = esAVLRec(A, A.hijoDrcho(n));
+  if (!der.ok) return {false, 0};
+
+  const int fb = izq.altura - der.altura;
+  const bool balanceOK = (fb >= -1 && fb <= 1);
+  const int h = 1 + std::max(izq.altura, der.altura);
+
+  return {balanceOK, h};
+}
+
+bool esAVL(const Abin<int>& A) {
+  return esAVLRec(A, A.raiz()).ok;
+}
+```
+
+Claves para explicarlo en examen:
+
+- “Devuelvo altura para no recalcularla en cada nodo”.
+- “Cada nodo se procesa una vez”.
+
+</details>
+
+> Si tu TAD usa otra convención (altura vacío = 0), ajusta el caso base.
+
+### Nota importante (según enunciado)
+
+Algunos profesores entienden AVL como “**ABB + balance**”.
+
+- Si el enunciado **solo** habla de balance/rotaciones → con lo anterior basta.
+- Si el enunciado insiste en “ABB” o compara claves → además debes comprobar la propiedad de ABB.
+
 ## 3) Errores típicos
 
 - Confundir **altura** con **profundidad**.
 - No fijar convención de altura del árbol vacío (según TAD puede ser −1 o 0).
 - En LR/RL: intentar una sola rotación cuando hacen falta dos.
+- Implementar `esAVL` recalculando alturas desde cero en cada nodo (acaba en O(n^2)).
 
 ## 4) Ejemplo guiado (Stepper)
 
@@ -43,6 +100,10 @@ Cuando insertas/eliminás, corriges el desbalance con **rotaciones**.
 
 - Búsqueda/inserción/eliminación: **O(log n)**
 - Verificación `esAVL`: si recalculas alturas desde cero en cada nodo puede irse a **O(n^2)**; si devuelves (esAVL, altura) en una sola pasada → **O(n)**.
+
+Justificación “de examen” para `esAVLRec`:
+
+> La recursión visita cada nodo una vez y hace trabajo O(1) en cada uno ⇒ O(n). La profundidad de recursión es la altura del árbol ⇒ O(h) memoria.
 
 ## 6) Ver más en guía completa
 

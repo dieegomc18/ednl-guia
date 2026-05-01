@@ -14,6 +14,18 @@ Los recorridos son “órdenes de visita”. En examen, casi siempre sirven para
 - transformar/imprimir árboles
 - justificar que recorres **todos** los nodos una vez
 
+Piensa esto como una regla de oro:
+
+> Si el enunciado te pide “calcular algo del árbol”, casi seguro es **un recorrido + una función recursiva**.
+
+## 1.5) Qué te suelen pedir (patrones de enunciado)
+
+- **Altura / profundidad / nivel**: se resuelve con DFS (típicamente postorden) devolviendo un valor.
+- **Contar**: nodos, hojas, internos, grado, etc. → DFS sumando.
+- **Validar una propiedad** (p.ej. “es estrictamente binario”, “es AVL”, “cumple X”) → DFS que devuelve (ok, dato auxiliar).
+- **Imprimir/transformar**: preorden / inorden / postorden según el orden pedido.
+- **Por niveles**: cuando el enunciado dice “nivel”, “capa”, “distancia a la raíz”, “antes/después en anchura”.
+
 ## 2) Receta de examen
 
 - **Preorden:** Nodo → Izq → Der (útil para copiar/serializar “prefijo”)
@@ -21,19 +33,93 @@ Los recorridos son “órdenes de visita”. En examen, casi siempre sirven para
 - **Postorden:** Izq → Der → Nodo (muy típico para borrar/liberar o calcular desde hojas)
 - **BFS:** por niveles (útil para problemas por “capas”)
 
+### Plantilla mental para DFS (lo que quieres escribir en examen)
+
+1. Define **caso base** (subárbol vacío).
+2. Llama recursivamente a hijos.
+3. Combina resultados.
+
+Ejemplo típico (altura):
+
+```cpp
+int altura(const Abin<int>& A, Abin<int>::nodo n) {
+  if (n == Abin<int>::NODO_NULO) return -1; // convención común
+  return 1 + std::max(
+    altura(A, A.hijoIzqdo(n)),
+    altura(A, A.hijoDrcho(n))
+  );
+}
+```
+
+> Nota: algunos TADs usan altura(árbol vacío)=0. Elige convención y sé coherente.
+
 ## 3) Errores típicos
 
 - Confundir inorden con preorden (suele pasar cuando estás nervioso).
 - En BFS: olvidar que necesitas una cola.
+- Mezclar “altura” y “profundidad”: **altura** baja hacia hojas; **profundidad** sube hacia raíz.
+- Usar mal la convención del subárbol vacío (te descuadra todo por 1).
 
 ## 4) Ejemplo guiado (Stepper)
 
 <TraversalStepper />
 
+## 4.5) Mini‑ejercicios tipo examen (con solución)
+
+### Ejercicio A — Contar hojas
+
+**Enunciado típico:** “Devuelve el número de hojas del árbol binario”.
+
+Pista: una hoja es nodo con **0 hijos**.
+
+<details>
+  <summary>Solución (idea + plantilla)</summary>
+
+Idea: DFS. Si subárbol vacío → 0. Si nodo es hoja → 1. Si no → hojas(izq)+hojas(der).
+
+```cpp
+int numHojas(const Abin<int>& A, Abin<int>::nodo n) {
+  if (n == Abin<int>::NODO_NULO) return 0;
+  const auto izq = A.hijoIzqdo(n);
+  const auto der = A.hijoDrcho(n);
+  if (izq == Abin<int>::NODO_NULO && der == Abin<int>::NODO_NULO) return 1;
+  return numHojas(A, izq) + numHojas(A, der);
+}
+```
+
+</details>
+
+### Ejercicio B — “Estricto” (0 o 2 hijos)
+
+**Enunciado típico:** “Comprueba si el árbol es estrictamente binario (cada nodo tiene 0 o 2 hijos)”.
+
+<details>
+  <summary>Solución (idea + plantilla)</summary>
+
+Idea: DFS devolviendo bool. En cada nodo, o bien (0 hijos) o bien (2 hijos) y ambos subárboles cumplen.
+
+```cpp
+bool esEstricto(const Abin<int>& A, Abin<int>::nodo n) {
+  if (n == Abin<int>::NODO_NULO) return true;
+  const auto izq = A.hijoIzqdo(n);
+  const auto der = A.hijoDrcho(n);
+  const bool tieneIzq = (izq != Abin<int>::NODO_NULO);
+  const bool tieneDer = (der != Abin<int>::NODO_NULO);
+  if (tieneIzq != tieneDer) return false; // exactamente 1 hijo
+  return esEstricto(A, izq) && esEstricto(A, der);
+}
+```
+
+</details>
+
 ## 5) Complejidad
 
 - DFS (pre/in/post): **O(n)** tiempo, **O(h)** pila (altura)
 - BFS: **O(n)** tiempo, **O(ancho)** memoria en la cola
+
+Justificación “de examen” (2–4 líneas):
+
+> Cada nodo se visita una vez y en cada visita hago O(1) trabajo ⇒ O(n) tiempo. La recursión usa pila de profundidad h (altura) ⇒ O(h) memoria (en BFS es el ancho máximo en cola).
 
 ## 6) Ver más en guía completa
 
