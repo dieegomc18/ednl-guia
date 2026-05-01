@@ -1,0 +1,50 @@
+---
+title: AVL (rotaciones + esAVL)
+---
+
+import {AvlRotationStepper} from '@site/src/components/steppers/AvlRotationStepper';
+
+# AVL
+
+## 1) Idea clave
+
+Un **AVL** es un ABB que además mantiene el balance:
+
+> En cada nodo, \|h(izq) − h(der)\| ≤ 1
+
+Cuando insertas/eliminás, corriges el desbalance con **rotaciones**.
+
+## 2) Receta de examen
+
+### Detectar el caso
+
+1. Calcula el **factor de balance**: `fb = h(izq) - h(der)`.
+2. Si `fb` ∈ `{-1, 0, 1}`: OK.
+3. Si `fb = +2` o `fb = −2`: necesitas rotar.
+
+### Rotaciones (idea rápida)
+
+- **LL** → rotación derecha
+- **RR** → rotación izquierda
+- **LR** → izquierda en hijo + derecha
+- **RL** → derecha en hijo + izquierda
+
+## 3) Errores típicos
+
+- Confundir **altura** con **profundidad**.
+- No fijar convención de altura del árbol vacío (según TAD puede ser −1 o 0).
+- En LR/RL: intentar una sola rotación cuando hacen falta dos.
+
+## 4) Ejemplo guiado (Stepper)
+
+<AvlRotationStepper />
+
+## 5) Complejidad
+
+- Búsqueda/inserción/eliminación: **O(log n)**
+- Verificación `esAVL`: si recalculas alturas desde cero en cada nodo puede irse a **O(n^2)**; si devuelves (esAVL, altura) en una sola pasada → **O(n)**.
+
+## 6) Ver más en guía completa
+
+- Ve a: [/guia-completa](/guia-completa)
+- Busca: `### 1.5 Árboles Equilibrados (AVL y ARN)` y `### 2.4 Comprobar si un Árbol es AVL`

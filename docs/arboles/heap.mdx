@@ -1,0 +1,59 @@
+---
+title: Heap (APO) — flotar/hundir
+---
+
+# Heap (APO)
+
+## 1) Idea clave
+
+Un heap es un árbol (normalmente binario) que cumple:
+
+- **Forma**: casi completo
+- **Propiedad de heap**:
+  - min-heap: padre ≤ hijos
+  - max-heap: padre ≥ hijos
+
+En examen, lo que cae casi siempre es:
+
+- **insertar** → flotar (sift-up)
+- **extraer raíz** → hundir (sift-down)
+
+## 2) Receta de examen
+
+### Insertar
+
+1. Inserta al final (mantienes forma).
+2. Mientras viole la propiedad con su padre: **intercambia** (flota).
+
+### Extraer (raíz)
+
+1. Guardas la raíz (respuesta).
+2. Subes el último elemento a la raíz.
+3. Mientras viole la propiedad con el hijo “mejor” (menor en min-heap / mayor en max-heap): **intercambia** (hunde).
+
+## 3) Errores típicos
+
+- En hundir: elegir el hijo incorrecto (en min-heap debes comparar con el **hijo menor**).
+- Olvidar que el heap se suele representar como array:
+  - padre(i) = (i−1)/2
+  - izq(i) = 2i+1
+  - der(i) = 2i+2
+
+## 4) Ejemplo guiado (Lab)
+
+- Prueba el lab interactivo: **[Heap Lab](/labs/heap)**
+
+Sugerencia de práctica:
+
+1) Inserta un número pequeño (debería flotar varios swaps)
+2) Extrae mínimo y mira cómo el nuevo root se hunde
+
+## 5) Complejidad
+
+- Insertar: **O(log n)**
+- Extraer raíz: **O(log n)**
+
+## 6) Ver más en guía completa
+
+- Ve a: [/guia-completa](/guia-completa)
+- Busca: `### 1.6 Árboles Parcialmente Ordenados (APO / Heap)` y `### 3.5 Flotar/Hundir Nodos`

@@ -1,0 +1,54 @@
+---
+title: ABB (invariante, inserción y eliminación)
+---
+
+# ABB
+
+## 1) Idea clave
+
+Un **ABB** mantiene un invariante de orden:
+
+- Todo en el subárbol izquierdo < nodo
+- Todo en el subárbol derecho > nodo
+
+Eso te permite buscar/inserción/eliminación por comparación.
+
+## 2) Receta de examen
+
+### Inserción
+
+1. Empieza en la raíz.
+2. Si `x < nodo`, baja a izquierda; si `x > nodo`, baja a derecha.
+3. Inserta cuando llegues a un hijo vacío.
+
+### Eliminación (3 casos)
+
+1. **Hoja**: eliminas directo.
+2. **1 hijo**: “subes” el hijo.
+3. **2 hijos**: sustituyes por:
+   - el **predecesor** (máximo del subárbol izquierdo), o
+   - el **sucesor** (mínimo del subárbol derecho)
+   y luego eliminas ese nodo movido.
+
+## 3) Errores típicos
+
+- No especificar qué haces con claves iguales (si el TAD lo permite, define convención).
+- En eliminación con 2 hijos: olvidar que el predecesor/sucesor se elimina en su posición original.
+
+## 4) Ejemplo guiado
+
+Si borras un nodo con 2 hijos y eliges sucesor:
+
+1) Vas al hijo derecho
+2) Bajas siempre por izquierda hasta el mínimo
+3) Ese mínimo “sube” a la posición del borrado
+
+## 5) Complejidad
+
+- Esperada (árbol más o menos equilibrado): **O(log n)**
+- Peor caso (degenerado): **O(n)**
+
+## 6) Ver más en guía completa
+
+- Ve a: [/guia-completa](/guia-completa)
+- Busca: `### 1.4 ABB (Árbol Binario de Búsqueda)` y `### 2.2 Inserción y Eliminación en ABB`

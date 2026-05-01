@@ -13,7 +13,9 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "smoke": "node scripts/smoke-build.mjs"
+    "smoke": "node scripts/smoke-build.mjs",
+    "sync:guia": "node scripts/generate-guia-completa.mjs",
+    "check:guia": "node scripts/generate-guia-completa.mjs && git diff --exit-code docs/guia-completa.md"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.1",

@@ -1,0 +1,47 @@
+---
+title: Dijkstra (relajación + cómo pensarlo)
+---
+
+# Dijkstra
+
+## 1) Idea clave
+
+Dijkstra calcula distancias mínimas desde un origen cuando:
+
+- el grafo es ponderado
+- **no hay pesos negativos**
+
+La pieza clave es la **relajación** de aristas.
+
+## 2) Receta de examen
+
+1. Inicializa distancias: `dist[origen]=0`, resto `∞`.
+2. Repite:
+   - elige el nodo no fijado con menor `dist` (lo “fijas”)
+   - relaja sus aristas: si `dist[u] + w(u,v) < dist[v]`, actualiza `dist[v]` y `prev[v]=u`
+3. Termina cuando no quedan nodos alcanzables.
+
+## 3) Errores típicos
+
+- Usar Dijkstra con pesos negativos (incorrecto).
+- No justificar el “por qué” de fijar el mínimo: con pesos no negativos, el mínimo no puede mejorar después.
+- Olvidar reconstrucción del camino (con `prev`).
+
+## 4) Ejemplo guiado (Lab)
+
+- Prueba el lab interactivo: **[Dijkstra Lab](/labs/dijkstra)**
+
+Qué mirar:
+
+- cuándo se fija un nodo
+- qué significa una relajación que “no mejora”
+
+## 5) Complejidad
+
+- Con matriz de adyacencia (selección lineal): **O(n^2)**
+- Con heap/priority queue (lista de adyacencia): típicamente **O((n+m) log n)**
+
+## 6) Ver más en guía completa
+
+- Ve a: [/guia-completa](/guia-completa)
+- Busca: `### 5.5 Caminos de Coste Mínimo` y `### 6.2 Dijkstra` y `![Relajación en Dijkstra]`

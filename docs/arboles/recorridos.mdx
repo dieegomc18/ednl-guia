@@ -6,13 +6,36 @@ import {TraversalStepper} from '@site/src/components/steppers/TraversalStepper';
 
 # Recorridos
 
-En examen, lo importante es no equivocarse con el orden:
+## 1) Idea clave
 
-- **Preorden:** Nodo → Izq → Der
-- **Inorden:** Izq → Nodo → Der
-- **Postorden:** Izq → Der → Nodo
-- **BFS (niveles):** por capas desde la raíz
+Los recorridos son “órdenes de visita”. En examen, casi siempre sirven para:
 
-## Stepper
+- calcular propiedades agregadas (sumas, alturas, contar nodos)
+- transformar/imprimir árboles
+- justificar que recorres **todos** los nodos una vez
+
+## 2) Receta de examen
+
+- **Preorden:** Nodo → Izq → Der (útil para copiar/serializar “prefijo”)
+- **Inorden:** Izq → Nodo → Der (en ABB te da las claves ordenadas)
+- **Postorden:** Izq → Der → Nodo (muy típico para borrar/liberar o calcular desde hojas)
+- **BFS:** por niveles (útil para problemas por “capas”)
+
+## 3) Errores típicos
+
+- Confundir inorden con preorden (suele pasar cuando estás nervioso).
+- En BFS: olvidar que necesitas una cola.
+
+## 4) Ejemplo guiado (Stepper)
 
 <TraversalStepper />
+
+## 5) Complejidad
+
+- DFS (pre/in/post): **O(n)** tiempo, **O(h)** pila (altura)
+- BFS: **O(n)** tiempo, **O(ancho)** memoria en la cola
+
+## 6) Ver más en guía completa
+
+- Ve a: [/guia-completa](/guia-completa)
+- Busca: `![Recorridos Abin]` y la sección de árboles teoría.
