@@ -1,0 +1,49 @@
+---
+title: Estrategia de examen (checklist + complejidad)
+---
+
+# Estrategia de examen
+
+## 1) Idea clave
+
+En EDNL, normalmente apruebas si:
+
+- modelas bien el problema (TAD correcto)
+- aplicas una receta estándar (recorridos / heap / hash / Dijkstra / MST)
+- justificas complejidad sin liarte
+
+## 2) Receta de examen (pasos)
+
+1. **Traduce el enunciado** a: qué estructura y qué operaciones.
+2. Escribe una **firma limpia** (inputs/outputs) antes del código.
+3. Piensa la solución como “pipeline”:
+   - preparar datos
+   - algoritmo
+   - reconstrucción/resultado
+4. Haz un mini-check de casos borde.
+
+## 3) Errores típicos
+
+- Empezar a programar sin definir el modelo.
+- No fijar convenciones (altura árbol vacío, índices, infinito).
+- Complejidad “a ojo” sin justificar bucles/operaciones dominantes.
+
+## 4) Ejemplo guiado (plantilla mental)
+
+Para justificar complejidad:
+
+- Identifica `n` (nodos) y `m` (aristas) si es grafo.
+- Cuenta:
+  - recorridos de árbol: O(n)
+  - heap insert/extract: O(log n)
+  - Dijkstra matriz: O(n^2)
+  - Kruskal: ordenar aristas O(m log m) + Union-Find casi lineal
+
+## 5) Complejidad
+
+- La justificación debe ser coherente y breve (2–6 líneas).
+
+## 6) Ver más en guía completa
+
+- Ve a: [/guia-completa](/guia-completa)
+- Busca: `## 8. ESTRATEGIA PARA EL EXAMEN` y `### 8.3 Justificación de Complejidad` y `### 8.4 Checklist antes de Entregar`
