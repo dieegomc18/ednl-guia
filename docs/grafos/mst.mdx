@@ -4,11 +4,44 @@ title: Árbol de recubrimiento mínimo (Kruskal/Prim)
 
 import {MstStepper} from '@site/src/components/steppers/MstStepper';
 
-# MST
+# MST (Kruskal / Prim)
 
-Dos enfoques típicos:
+## 1) Idea clave
 
-- **Kruskal:** añade aristas por peso si no forman ciclo
-- **Prim:** crece un árbol eligiendo la arista mínima que conecta
+Un MST conecta todos los nodos con coste total mínimo (grafo no dirigido y ponderado).
+
+- **Kruskal** piensa “aristas baratas sin ciclos”.
+- **Prim** piensa “crezco un árbol desde un nodo”.
+
+## 2) Receta de examen
+
+### Kruskal
+
+1. Ordena aristas por peso.
+2. Recorre en orden: si la arista une dos componentes distintas, la añades.
+3. Con Union-Find, `find`/`union` controlan ciclos.
+
+### Prim
+
+1. Elige un nodo inicial.
+2. Mantén el conjunto dentro del MST.
+3. Añade la arista mínima que conecta dentro → fuera.
+
+## 3) Errores típicos
+
+- Usar MST en grafo dirigido (normalmente el MST es para no dirigido).
+- En Kruskal: no detectar ciclos correctamente (sin Union-Find suele haber errores).
+
+## 4) Ejemplo guiado (Stepper)
 
 <MstStepper />
+
+## 5) Complejidad
+
+- Kruskal: ordenar O(m log m) + Union-Find casi lineal
+- Prim: depende implementación (con matriz suele ser O(n^2))
+
+## 6) Ver más en guía completa
+
+- Ve a: [/guia-completa](/guia-completa)
+- Busca: `### 5.6 Árboles Generadores Mínimos (MST)` y `### 6.5 TAD Partición (Union-Find)` y `### 6.6 Kruskal` y `### 6.7 Prim`
