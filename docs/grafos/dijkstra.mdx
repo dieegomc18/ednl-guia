@@ -13,6 +13,13 @@ Dijkstra calcula distancias mínimas desde un origen cuando:
 
 La pieza clave es la **relajación** de aristas.
 
+## 1.5) Qué te suelen pedir (patrones de enunciado)
+
+- “Distancia mínima desde **un origen** a todos / a un destino”.
+- “Camino mínimo” (no solo distancia) → necesitas `prev` para reconstruir.
+- “¿Qué pasa si hay pesos negativos?” → respuesta: Dijkstra **no** vale.
+- “Explica por qué al fijar el mínimo ya no cambia” → propiedad de pesos no negativos.
+
 ## 2) Receta de examen
 
 1. Inicializa distancias: `dist[origen]=0`, resto `∞`.
@@ -21,11 +28,46 @@ La pieza clave es la **relajación** de aristas.
    - relaja sus aristas: si `dist[u] + w(u,v) < dist[v]`, actualiza `dist[v]` y `prev[v]=u`
 3. Termina cuando no quedan nodos alcanzables.
 
+### Lo que DEBES escribir en examen (dist + prev + fijados)
+
+Piensa en tres estructuras:
+
+- `dist[v]`: mejor distancia conocida
+- `prev[v]`: anterior para reconstruir camino
+- `fijado[v]` (o `visitado[v]`): si ya decidiste su distancia definitiva
+
+Pseudo “modo examen” (sin estructura de datos fancy):
+
+```text
+dist[origen]=0; dist[resto]=∞; prev[...]=NULO; fijado[...]=false
+
+repite n veces:
+  u = no fijado con menor dist
+  si dist[u]=∞: parar
+  fijado[u]=true
+  para cada vecino v de u:
+    si !fijado[v] y dist[u]+w(u,v) < dist[v]:
+      dist[v] = dist[u]+w(u,v)
+      prev[v] = u
+```
+
+Reconstrucción del camino a `t`:
+
+```text
+camino = []
+v=t
+while v != NULO:
+  camino.push_front(v)
+  v=prev[v]
+```
+
 ## 3) Errores típicos
 
 - Usar Dijkstra con pesos negativos (incorrecto).
 - No justificar el “por qué” de fijar el mínimo: con pesos no negativos, el mínimo no puede mejorar después.
 - Olvidar reconstrucción del camino (con `prev`).
+- Relajar aristas desde un `u` con `dist[u]=∞` (si no es alcanzable, no hay nada que relajar).
+- Confundir “fijado” con “metido en la cola” (si usas priority queue, esto es una fuente típica de bugs).
 
 ## 4) Ejemplo guiado (Lab)
 
@@ -36,10 +78,40 @@ Qué mirar:
 - cuándo se fija un nodo
 - qué significa una relajación que “no mejora”
 
+## 4.5) Mini‑ejercicio tipo examen (con solución)
+
+### Ejercicio — una relajación concreta
+
+Supón que estás en un paso donde:
+
+- `dist[u] = 7`
+- hay arista `u → v` con `w(u,v)=4`
+- `dist[v]` actualmente es `15`
+
+¿Qué haces?
+
+<details>
+  <summary>Solución (razonamiento de examen)</summary>
+
+Calculo candidato: `7 + 4 = 11`.
+
+Como `11 < 15`, **mejora**:
+
+- actualizo `dist[v]=11`
+- actualizo `prev[v]=u`
+
+Si no mejorara, no toco nada.
+
+</details>
+
 ## 5) Complejidad
 
 - Con matriz de adyacencia (selección lineal): **O(n^2)**
 - Con heap/priority queue (lista de adyacencia): típicamente **O((n+m) log n)**
+
+Justificación breve (de examen):
+
+> Con matriz, seleccionar el mínimo cuesta O(n) y lo haces n veces ⇒ O(n^2). Con heap, cada extracción/inserción cuesta O(log n) y haces O(n+m) operaciones ⇒ O((n+m) log n).
 
 ## 6) Ver más en guía completa
 

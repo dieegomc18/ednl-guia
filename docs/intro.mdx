@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Inicio
 
 Este sitio está pensado para preparar EDNL con tres recursos:
@@ -15,6 +17,78 @@ Este sitio está pensado para preparar EDNL con tres recursos:
 - Lee el tema en Docs.
 - Haz el Lab correspondiente para fijar el algoritmo.
 - Vuelve a los PDFs / guía HTML cuando necesites ver enunciados originales.
+
+## Plan de estudio recomendado (10 días · 4–6 h/día)
+
+> Objetivo: seguir el **formato del examen** (teoría → código con TADs → ejercicios tipo) y llegar a simulacros.
+
+**Cada día (regla):**
+
+- 60–90 min teoría (Docs)
+- 60–90 min “plantilla de código” (cómo lo escribirías en examen)
+- 2–3 h ejercicios (PDF tipo examen)
+
+PDF principal de ejercicios:
+<a href={useBaseUrl('/ednl/EjerciciosTipoExamen.pdf')} data-noBrokenLinkCheck>
+  EjerciciosTipoExamen.pdf
+</a>
+
+### Día 1 — Recorridos (pre/in/post/BFS) + cómo te lo preguntan
+
+- Lee: [/arboles/recorridos](/arboles/recorridos)
+- Haz el stepper 2–3 veces.
+- Ejercicio: 1 de árboles que sea claramente de recorrido (altura / contar hojas / propiedad por DFS).
+
+### Día 2 — Abin vs Agen (recorrer Agen sin liarte)
+
+- Lee: [/arboles/abin-agen](/arboles/abin-agen)
+- Ejercicio: 1 de Agen (bucle de hermanos + recursión).
+
+### Día 3 — ABB (inorden y recetas típicas)
+
+- Lee: [/arboles/abb](/arboles/abb)
+- Ejercicio: 1 de ABB (validar ABB / buscar / mínimo / k‑ésimo si cae).
+
+### Día 4 — AVL (rotaciones + `esAVL`)
+
+- Lee: [/arboles/avl](/arboles/avl)
+- Haz el stepper hasta que LR/RL no te cuesten.
+- Ejercicio estrella: `esAVL` en **una pasada** devolviendo altura.
+
+### Día 5 — Heap (insert/extract, flotar/hundir)
+
+- Lee: [/arboles/heap](/arboles/heap)
+- Haz el lab: [/labs/heap](/labs/heap)
+- Ejercicio: 1 tipo “mantén top‑k” o simula operaciones.
+
+### Día 6 — Hash (colisiones + borrado en abierto)
+
+- Lee: [/hash/colisiones](/hash/colisiones)
+- Ejercicio: 1 de insertar/buscar con colisiones (simulando posiciones).
+
+### Día 7 — Dijkstra (relajación + `prev`)
+
+- Lee: [/grafos/dijkstra](/grafos/dijkstra)
+- Haz el lab: [/labs/dijkstra](/labs/dijkstra)
+- Ejercicio: 1 de caminos mínimos (distancias + camino reconstruido).
+
+### Día 8 — MST (Kruskal/Prim + Union-Find)
+
+- Lee: [/grafos/mst](/grafos/mst)
+- Haz el stepper 2–3 veces.
+- Ejercicio: 1 de Kruskal o 1 de Prim.
+
+### Día 9 — Simulacro 1 (examen real)
+
+- 1 ejercicio de árboles + 1 de grafos (tiempo real).
+- Revisión: apunta 5 fallos (modelo / caso borde / complejidad / TAD / implementación).
+
+### Día 10 — Simulacro 2 + checklist final
+
+- Repite simulacro con ejercicios distintos.
+- Lee y aplica: [/estrategia/examen](/estrategia/examen)
+
+> Si algún día vas justo: recorta teoría, **no recortes ejercicios**.
 
 ## Enlaces rápidos
 
