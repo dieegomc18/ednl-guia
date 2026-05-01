@@ -13,12 +13,12 @@ title: Guía completa (modo profe)
 ## ÍNDICE
 1. [Árboles: Teoría](#1-árboles-teoría)
 2. [Árboles: Implementación y Código](#2-árboles-código)
-3. [Árboles: Ejercicios Tipo Examen](#3-ejercicios-árboles)
-4. [Tablas Hash: Teoría](#4-tablas-hash)
+3. [Árboles: Ejercicios Tipo Examen](#3-ejercicios-árboles-tipo-examen)
+4. [Tablas Hash: Teoría](#4-tablas-hash-teoría)
 5. [Grafos: Teoría](#5-grafos-teoría)
 6. [Grafos: Implementación y Código](#6-grafos-código)
-7. [Grafos: Ejercicios Tipo Examen](#7-ejercicios-grafos)
-8. [Estrategia para el Examen](#8-estrategia)
+7. [Grafos: Ejercicios Tipo Examen](#7-ejercicios-grafos-tipo-examen)
+8. [Estrategia para el Examen](#8-estrategia-para-el-examen)
 
 ---
 
