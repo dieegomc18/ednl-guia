@@ -1,0 +1,10 @@
+---
+title: "Implementaciones del TAD árbol general"
+---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+> Fuente: <a href={useBaseUrl('/ednl/TeoriaEDNL.pdf')} data-noBrokenLinkCheck>TeoriaEDNL.pdf</a>
+
+Consultar el hermano derecho de un nodo : Precondici´ on: n es un nodo del ´ arbol. Postcondici´ on: Devuelve el hermano derecho del nodo n, si no existe, devuelve NODO NULO. nodo hermDrcho(nodo n)const; 3.2. Implementaciones del TAD ´ arbol general 3.2.1. Implementaci´ on vectorial mediante lista de hijos En la implementaci´ on vectorial mediante una lista de hijos, cada nodo tiene almacenado una lista de nodos llamados hijos, la cual podemos recorrer para poder consultar sus diferentes hijos (mediante un bucle while ). Figura 3.2: Representaci´ on de la implementaci´ on vectorial mediante lista de hijos. En la parte privada de la implementaci´ on de dicho TAD vamos a encontrar el elementos que se almacena, el nodo padre y la lista de los diferentes hijos de cada nodo, todo almacenado en celdas: template &lt; typename T &gt; class Agen \{ public : //M´ etodos vistos en la especificaci´ on del TAD private : struct celda \{ T elto; //elemento nodo padre Lista&lt;nodo&gt;hijos; \}; celda *nodos; //Vector de nodos size_t maxNodos; //Tama˜ no de vector (´ arbol) size_t numNodos; //N´ umero de nodos en el ´ arbol \}; 20
+
+3.2.2. Implementaci´ on mediante celdas enlazadas Esta implementaci´ on es muy parecida a la implementaci´ on mediante celdas enlazadas en ´ arboles binarios, la ´ unica diferencia es que en la parte privada no almacenamos hijos derechos, si no que almacenamos hermanos derechos, ya que en nuestro TAD, el concepto de hijo derecho ya no tiene sentido. Figura 3.3: Representaci´ on de la implementaci´ on mediante celdas enlazadas Por tanto, la parte privada del TAD nos quedar´ ıa: template &lt; typename T &gt; class Agen \{ public : //M´ etodos vistos en la especificaci´ on del TAD private : struct celda \{ T elto; nodo padre,hizq,heder; celda( const T&amp; e, nodo p = NODO_NULO):elto(e),padre(p), hizq(NODO_NULO),heder(NODO_NULO)\{\} \}; nodo r; //nodo ra´ ız del ´ arbol \}; 21

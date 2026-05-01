@@ -1,0 +1,8 @@
+---
+title: "Árboles ARN"
+---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+> Fuente: <a href={useBaseUrl('/ednl/TeoriaEDNL.pdf')} data-noBrokenLinkCheck>TeoriaEDNL.pdf</a>
+
+5.2. ´ Arboles ARN Un ´ arbol ARN ´ o ´ arbol rojinegro es un ABB que representa un ´ arbol B de orden 3 (´ arbol 2-3), el cual est´ a equilibrado (tiene todas las hojas en el mismo nivel). Si tenemos k claves, entonces tenemos k + 1caminos, por tanto, si tenemos un ´ arbol 2-3, tendremos 2 clave y 3 caminos. Si tenemos 2 claves el desequilibrio va a ser 1. Siempre va a existir un nodo negro (valor m´ as grande del par) pero puede existir o no un nodo rojo (valor m´ as peque˜ no del par). Esta representaci´ on permite una implementaci´ on m´ as sencilla de inserciones y eliminaciones, ya que solamente comparamos los valores de cada nodo y no tenemos que hacer uso de estructuras complejas como los punteros. Todo nodo ra´ ız se denomina nodo negro, mientras que todo hijo izquierdo de esa ra´ ız se denomina nodo rojo. Otra cosa a tener en cuenta es que todos los hijos de un nodo rojo son nodos negros , v´ ease en la ( Figura 5.2: Ejemplo de ´ arbol rojinegro ). Figura 5.2: Ejemplo de ´ arbol rojinegro Inserci´ on y Eliminaci´ on Se realizan igual que en un ABB ( ´ Arbol Binario de B´ usqueda) pero deben de representar correctamente el ´ arbol 2-3 subyacente, es decir, tenemos que realizar cambios de color y rotaciones (operaciones internas) en los nodos. Operaciones internas Encontramos las operaciones de rotaciones y repintado las cuales tendremos que usar a la hora de insertar y eliminar nodos: Rotaci´ on → Recolocan los nodos del ´ arbol conservando la propiedad de orden/b´ usque- da. 29

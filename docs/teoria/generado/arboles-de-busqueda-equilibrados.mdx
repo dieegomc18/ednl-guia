@@ -1,0 +1,8 @@
+---
+title: "Árboles de Búsqueda Equilibrados"
+---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+> Fuente: <a href={useBaseUrl('/ednl/TeoriaEDNL.pdf')} data-noBrokenLinkCheck>TeoriaEDNL.pdf</a>
+
+5. ´ Arboles de B´ usqueda Equilibrados La inserci´ on como la eliminaci´ on de elementos de un ABB determinan su grado de equilibrio, por ende la suceci´ on inserci´ on o eliminaci´ on de elementos del mismo puede alterar el equilibrio del ´ arbol. Sabemos que el coste de las operaciones buscar() , insertar() y eliminar() depende de la altura del ´ arbol (el caso m´ as desfavorable vimos que era O ( n ) ‘lista’). Este equilibrio nos permite garantizar un coste proporcional a la m´ ınima altura posible del ´ arbol, consiguiendo un coste m´ ınimo de O ( log 2 n ), por tanto, es muy importante que a la hora de insertar o eliminar elementos mantengamos el ´ arbol lo m´ as equilibrado posible. Encontramos dos tipos de ´ arboles equilibrados los ´ arboles AVL y los ´ arboles ARN . 5.1. ´ Arboles AVL Un ´ arbol AVL es un tipo de ABB equilibrado, la resta de la altura del sub´ arbol derecho menos la altura del sub´ arbol izquierdo del mismo nodo se denomina factor de equilibrio de nodo (esto garantiza el coste logar´ ıtmico). Decimos que un ´ arbol est´ a equilibrado cuando su factor de equilibrio es -1, 0 ´ o 1 en todos sus nodos. Como hemos comentado previamente, la inserci´ on y la eliminaci´ on de elementos pueden verificar la condici´ on de equilibrio del ´ arbol y si es necesario, reequilibrarlo mediante la rotaci´ on de nodos (intercambios). En el peor caso, el tiempo de inserci´ on, eliminaci´ on y b´ usqueda est´ an en coste O ( log n ). Diferencia entre AVL y No AVL Figura 5.1: Diferencia entre No AVL y AVL 28

@@ -4,6 +4,8 @@ const sidebars: SidebarsConfig = {
   tutorialSidebar: [
     'intro',
     'guia-completa',
+    'teoria/index',
+    'practicas/index',
     {
       type: 'category',
       label: 'Árboles (núcleo)',

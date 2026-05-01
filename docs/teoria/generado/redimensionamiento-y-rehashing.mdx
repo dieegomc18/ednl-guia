@@ -1,0 +1,8 @@
+---
+title: "Redimensionamiento y Rehashing"
+---
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+> Fuente: <a href={useBaseUrl('/ednl/TeoriaEDNL.pdf')} data-noBrokenLinkCheck>TeoriaEDNL.pdf</a>
+
+El hashing cerrado requiere prever el n´ umero m´ aximo de elementos a almacenar (degradaci´ on muy r´ apida de la eficiencia y rendimiento), mientras que hashing abierto requiere un mayor tama˜ no de la tabla (aunque el uso de memoria es menor, ya que no usamos punteros). La exploraci´ on lineal es el m´ etodo menos eficiente , con una curva exponencial ( v´ ease en la Figura 7.1: Gr´ afica comparativa entre diferentes tipos de hashing ). Aunque esta aplicaci´ on puede ser ´ util en algunos casos, ya que su implementaci´ on no es complicada. La exploraci´ on cuadr´ atica tiene una eficiencia equiparable a las exploraci´ on aleatoria o hashing doble , esto confirma que los agrupamientos secundarios no afectan tanto en la eficiencia como los agrupamientos primarios . Como vemos el rendimiento del Encadenamiento mezclado se aproxima al del hashing abierto , el cual es el m´ as eficiente peor acosta de consumir m´ as memoria debido al uso de punteros de las listas enlazadas. Figura 7.1: Gr´ afica comparativa entre diferentes tipos de hashing 7.8. Redimensionamiento y Rehashing Cuando una tabla tiene un factor de carga alto, es decir, est´ a muy llena, se realiza un redi- mensionamiento de la misma (se crea una tabla m´ as grande y se reinsercionan de nuevo los elementos de la anterior) o un rehashing (se reinsercionan los elementos en la misma tabla para eliminar las casillas que est´ an marcadas como borradas). Esto hace que se restaure la eficiencia de la tabla. 47

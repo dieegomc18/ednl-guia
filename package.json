@@ -16,7 +16,9 @@
     "typecheck": "tsc",
     "smoke": "node scripts/smoke-build.mjs",
     "sync:guia": "node scripts/generate-guia-completa.mjs",
-    "check:guia": "node scripts/generate-guia-completa.mjs && git diff --exit-code docs/guia-completa.md"
+    "check:guia": "node scripts/generate-guia-completa.mjs && git diff --exit-code docs/guia-completa.md",
+    "sync:pdf-docs": "node scripts/generate-teoria.mjs && node scripts/generate-practicas.mjs",
+    "check:pdf-docs": "npm run sync:pdf-docs && git diff --exit-code docs/teoria docs/practicas"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.1",
@@ -25,6 +27,7 @@
     "@easyops-cn/docusaurus-search-local": "^0.55.1",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
+    "pdfjs-dist": "^4.10.38",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
