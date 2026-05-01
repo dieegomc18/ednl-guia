@@ -81,7 +81,7 @@ private:
 | **Postorden** | Izq → Der → Nodo | Eliminar árbol, sufijos |
 | **Por niveles (BFS)** | Nivel 0, 1, 2... | Distancia a raíz, árboles completos |
 
-![Recorridos Abin](assets/diagrams/abin-recorridos.svg)
+![Recorridos Abin](/ednl/assets/diagrams/abin-recorridos.svg)
 
 ### 1.3 Árbol General (TAD Agen)
 
@@ -105,7 +105,7 @@ public:
 - Hijo izquierdo = primer hijo
 - Hijo derecho = siguiente hermano
 
-![Agen hijo-hermano](assets/diagrams/agen-hijo-hermano.svg)
+![Agen hijo-hermano](/ednl/assets/diagrams/agen-hijo-hermano.svg)
 
 ### 1.4 ABB (Árbol Binario de Búsqueda)
 
@@ -157,7 +157,7 @@ public:
 - Hijo izquierdo de i: 2i+1 (si 0-indexed)
 - Hijo derecho de i: 2i+2
 
-![Heap en array](assets/diagrams/heap-indices.svg)
+![Heap en array](/ednl/assets/diagrams/heap-indices.svg)
 
 ---
 
@@ -454,7 +454,7 @@ bool subarbolIzqMenorDer(const Abin<T>& A) {
 
 ### 4.2 Resolución de Colisiones
 
-![Colisiones hash](assets/diagrams/hash-colisiones.svg)
+![Colisiones hash](/ednl/assets/diagrams/hash-colisiones.svg)
 
 | Método | Idea | Ventajas | Inconvenientes |
 |--------|-----|---------|----------------|
@@ -576,7 +576,7 @@ private:
 
 ### 6.2 Dijkstra
 
-![Relajación en Dijkstra](assets/diagrams/dijkstra-relajacion.svg)
+![Relajación en Dijkstra](/ednl/assets/diagrams/dijkstra-relajacion.svg)
 
 ```cpp
 template <typename tCoste>
@@ -708,7 +708,7 @@ private:
 
 ### 6.6 Kruskal
 
-![MST: Kruskal vs Prim](assets/diagrams/mst-kruskal-prim.svg)
+![MST: Kruskal vs Prim](/ednl/assets/diagrams/mst-kruskal-prim.svg)
 
 ```cpp
 // Estructura para aristas
